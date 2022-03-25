@@ -29,15 +29,12 @@ const ReviewSection = ( {courseName} ) => {
     review.courseName = courseName;
     // call addReviewByCourseName service method to store review in database
     addReviewByCourseName(review);
-    // update the reviews state to render new reviews on UI
-    let updatedReviews = [...reviews, review]
-    setReviews(updatedReviews);
   }
 
-  // useEffect hook to get all the review for selected course for the first time on componenet load from the database
+  // useEffect hook to get all the review for selected course from the database
   useEffect(()=>{
     // Backend URL
-    const backEndURL = 'http://localhost:5000/reviews';
+    const backEndURL = 'http://localhost:3000/reviews';
     // fetch all the reviews from the database for selected course
     axios.get(backEndURL + '/' + courseName)
     .then((response) => {
@@ -50,9 +47,9 @@ const ReviewSection = ( {courseName} ) => {
     .catch((error) => {
         console.log(error)
     })
-  }, [])
+  })
   
-  // useEffect hook to delete review on isYes state change
+  // useEffect hook to delete review on isYes state changes
   useEffect(() => {
     if(isYes){
       // call deleteReviewByID service method to delete review from database
