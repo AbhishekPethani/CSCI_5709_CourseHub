@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUri = "http://localhost:3000/api/";
+const baseUri = "http://localhost:3000/admin/";
 
 const HttpClient = {
   get: (resourceUri) => {
