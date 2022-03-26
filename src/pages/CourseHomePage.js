@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { useState } from "react";
-import ReviewSection from "../components/ReviewSection";
+import ReviewSection from "../components/CourseReview/ReviewSection";
 import '../assets/css/course-home-page.css'
 import { Button } from "@mui/material";
 

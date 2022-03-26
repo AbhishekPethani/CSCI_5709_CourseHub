@@ -1,4 +1,4 @@
-import NavbarComp from './components/NavbarComp';
+import NavbarComp from './components/CourseReview/NavbarComp';
 import { useState } from "react";
 import Header from "./components/Admin/AdminHeader";
 import User from "./pages/AdminUser";

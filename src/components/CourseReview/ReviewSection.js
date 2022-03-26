@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
-import '../assets/css/course-home-page.css'
+import '../../assets/css/course-home-page.css'
 import ReviewModal from './ReviewModal';
 import Review from './Review';
 import { Box, Grid, Typography } from '@mui/material';
-import { deleteReviewByID, addReviewByCourseName } from '../services/reviews';
+import { deleteReviewByID, addReviewByCourseName } from '../../services/reviews';
 import DeleteReviewDialog from './DeleteReviewDialog';
 import axios from 'axios';
 
