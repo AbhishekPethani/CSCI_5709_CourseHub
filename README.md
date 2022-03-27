@@ -206,7 +206,7 @@ The code above was created by adapting the code in [React Grid component - MUI](
 </Paper>
 ```
 
-- The code in [React Grid component - MUI](https://mui.com/components/grid/) was implemented by using react-mui library. This code provides grid layout with multiple material UI components to nuild complex layout.
+- The code in [React Grid component - MUI](https://mui.com/components/grid/) was implemented by using react-mui library. This code provides grid layout with multiple material UI components to build complex layout.
 - [React Grid component - MUI](https://mui.com/components/grid/)'s Code was used because it provides design that i can use to display review given by user. This complex grid contains Img component that i can directly use to display user's profile. It also contains various Grid component which i can utilise to display user name, review dscription along with given rating and to show delete icon to delete the review.   
 - [React Grid component - MUI](https://mui.com/components/grid/)'s Code was modified by adding FaStar icons to display raings, by adding DeleteIcon to only those reviews that the current logged in user has wrote previously. Also, i have passed various props such as, review which contains review details (username, review description, and star ratings), currentUser to display DeleteIcons for reviews written by this current user, setReviewToDelete to set which review to delete when currentUser clicked on DeleteIcons button, and setIsDeleteIconClicked to set isDeleteIconClicked state when current user clicked on DeleteIcons.
 
@@ -229,7 +229,7 @@ const useDidMountEffect = (func, deps) => {
 
 The code above was created by adapting the code in [How to Make the React useEffect Hook Not Run on Initial Render?](https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/). This code used as it is.
 
-- [How to Make the React useEffect Hook Not Run on Initial Render?](https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/)'s Code was used to prevent useEffect hook to run on initial render of ReviewModal component. I have created error handling code which displays errors on ReviewModal when there is change in erros state using useEffect hook. But useEffect hook displays errors on first render (there is no error when ReviewModal component renders for the first time). So in order to disable useEffect hook to display errors on first render, this code is used.  
+- [How to Make the React useEffect Hook Not Run on Initial Render?](https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/)'s Code was used to prevent useEffect hook to run on initial render of ReviewModal component. I have created error handling code which displays errors on ReviewModal when there is change in erros state using useEffect hook. But useEffect hook displays errors on first render (there is no error when ReviewModal component renders for the first time). So in order to disable useEffect hook to display errors on first render, above code is used.  
 
 *Lines 78 - 104*
 
@@ -292,7 +292,7 @@ The code above was created by adapting the code in [React Modal component - MUI]
 ```
 
 - The code in [React Modal component - MUI](https://mui.com/components/modal/) was implemented by using react-mui library. This code provides modal to display details. When user click on button, this modal will be shown as pop-up.
-- [React Modal component - MUI](https://mui.com/components/modal/)'s Code was used because it provides a popover box which gives focused UI so that user can focus only on writing review. Using such design disable interaction with other section and disable scrolling of the page until the modal is open. 
+- [React Modal component - MUI](https://mui.com/components/modal/)'s Code was used because it provides a popover box which gives focused UI so that user can only focus on writing review. Using such design disable interaction with other section and disable scrolling of the page until the modal is open. 
 - [React Modal component - MUI](https://mui.com/components/modal/)'s Code was modified by replacing the text inside Typography component with Rating component for star rating, TextField component for review description and Button component to submit the review. I have added error handling functionality to check if the user has selected stars and wrote review in the text field and based on that appropriate errors will be displayed when the user clicked on submit button.
 
 ### DeleteReviewDialog.js
