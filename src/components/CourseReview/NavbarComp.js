@@ -1,12 +1,12 @@
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Courses from '../pages/Courses';
-import Discount from '../pages/Discount';
-import Home from '../pages/Home';
-import MyAccount from '../pages/MyAccount';
-import MyCourses from '../pages/MyCourses';
-import Order from '../pages/Order';
+import Courses from '../../pages/Courses';
+import Discount from '../../pages/Discount';
+import Home from '../../pages/Home';
+import MyAccount from '../../pages/MyAccount';
+import MyCourses from '../../pages/MyCourses';
+import Order from '../../pages/Order';
 
 const NavbarComp = () => {
   return (
