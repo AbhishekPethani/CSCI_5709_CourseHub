@@ -30,8 +30,8 @@ Step-1: Download Node.js Installer from https://nodejs.org/en/download/
 Step-2: Once the installer finishes downloading, launch it and install it.
 Step-3: To verify installation, Open a command prompt and enter the command node -v and you should get node version.
 Step-4: Download this project. open command prompt and navigate to this project directory.
-Step-5: Run the the following commands. The npm build command will download all the dependencies and npm start will create and start deployment server on port 3000.
-    npm build
+Step-5: Run the the following commands. The npm install command will download all the dependencies and npm start will create and start deployment server on port 3000 and our application is now accessible on browser.
+    npm install
     npm start
 step-6: Open any browser and type localhost:3000 
 ```
