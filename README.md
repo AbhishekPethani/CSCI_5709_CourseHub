@@ -1,4 +1,4 @@
-# Assignment 3
+# Assignment 3 (Frontend)
 
 * *Date Created*: 26 MAR 2022
 * *Last Modification Date*: 27 MAR 2022
