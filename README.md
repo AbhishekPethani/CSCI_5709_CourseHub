@@ -48,36 +48,6 @@ step-6: Open any browser and type localhost:3000
 
 ## Sources Used
 
-### react-course.png
-The above file is available at [hackr.io](https://hackr.io/blog/react-courses) 
-- The file in [hackr.io](https://hackr.io/blog/react-courses) is used to display react course image.
-- [hackr.io](https://hackr.io/blog/react-courses)'s file was downloaded and kept inside assets directory under src directory.
-
-### python-course.png
-The above file is available at [hackr.io](https://hackr.io/blog/best-python-courses) 
-- The file in [hackr.io](https://hackr.io/blog/best-python-courses)  is used to display python course image.
-- [hackr.io](https://hackr.io/blog/best-python-courses) 's file was downloaded and kept inside assets directory under src directory.
-
-### java-course.png
-The above file is available at [hackr.io](https://hackr.io/blog/best-java-courses) 
-- The file in [hackr.io](https://hackr.io/blog/best-java-courses)  is used to display java course image.
-- [hackr.io](https://hackr.io/blog/best-java-courses) 's file was downloaded and kept inside assets directory under src directory.
-
-### ml-course.png
-The above file is available at [hackr.io](https://hackr.io/blog/machine-learning-courses) 
-- The file in [hackr.io](https://hackr.io/blog/machine-learning-courses)  is used to display machine learning course image.
-- [hackr.io](https://hackr.io/blog/machine-learning-courses) 's file was downloaded and kept inside assets directory under src directory.
-
-### ai-course.png
-The above file is available at [hackr.io](https://hackr.io/blog/artificial-intelligence-courses) 
-- The file in [hackr.io](https://hackr.io/blog/artificial-intelligence-courses) is used to display artificial intelligence course image.
-- [hackr.io](https://hackr.io/blog/artificial-intelligence-courses)'s file was downloaded and kept inside assets directory under src directory.
-
-### node-course.png
-The above file is available at [hackr.io](https://hackr.io/blog/node-js-interview-questions) 
-- The file in [hackr.io](https://hackr.io/blog/node-js-interview-questions) is used to display node js course image.
-- [hackr.io](https://hackr.io/blog/node-js-interview-questions)'s file was downloaded and kept inside assets directory under src directory.
-
 ### ReviewSection.js
 
 *Lines 80 - 82*
