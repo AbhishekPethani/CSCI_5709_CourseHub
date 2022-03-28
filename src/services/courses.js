@@ -1,8 +1,12 @@
+/*=======================================================
+ Author: [Aditya Bakshi] (aditya.bakshi@dal.ca)
+========================================================= */
+
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 // Backend URL
-const backEndURL = 'http://localhost:3000/courses';
+const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/courses';
 
 // Method to get all the courses
 const getCourses = (course) => {

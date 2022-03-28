@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Aditya Bakshi] (aditya.bakshi@dal.ca)
+========================================================= */
+
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Appbar from "../components/Appbar";
