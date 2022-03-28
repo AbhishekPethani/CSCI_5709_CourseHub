@@ -25,10 +25,6 @@ if(allcourses !== undefined && allcourses.length > 0){
   
 }
   let courses = [];
-  // courses.push({ courseName: 'React', category: 'webdev', courseDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', courseImage: webdev1 });
-  // courses.push({ courseName: 'Angular', category: 'webdev', courseDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', courseImage: webdev2 });
-  // courses.push({ courseName: 'Java', category: 'backend', courseDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', courseImage: java });
-  // courses.push({ courseName: 'SQL', category: 'database', courseDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', courseImage: sql });
 
   const [selectedCourses, setSelectedCourses] = useState(courses);
 
@@ -40,9 +36,7 @@ if(allcourses !== undefined && allcourses.length > 0){
     }
   }
 
-
   const classes = useStyles();
-
 
   return (
     <div>

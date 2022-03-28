@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +21,11 @@ const useStyles = makeStyles({
 
 export default function CourseCard(props) {
   const classes = useStyles();
+  let navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/courses/${id}`);
+}
 
   return (
     <Card className={classes.root}>
@@ -38,7 +44,7 @@ export default function CourseCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() => handleClick(props.courseName)}>
           View
         </Button>
       </CardActions>
