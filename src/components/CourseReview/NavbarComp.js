@@ -17,10 +17,10 @@ const NavbarComp = () => {
     <Router>
     <div>
       <Navbar style={{backgroundColor:"#3f51b5"}} variant={"dark"} expand="lg" >
-        <Container>
-          <Navbar.Brand as={Link} to={"/home"}>CourseHub</Navbar.Brand>
+        <Container fluid>
+          <Navbar.Brand  as={Link} to={"/home"}>CourseHub</Navbar.Brand>          
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="me-auto">
               <Nav.Link style={{color:"white"}} as={Link} to={"/home"}> Home </Nav.Link>
               <Nav.Link style={{color:"white"}} as={Link} to={"/my-courses"}> My Courses </Nav.Link>
