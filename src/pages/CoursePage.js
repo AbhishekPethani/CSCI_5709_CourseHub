@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Aditya Bakshi] (aditya.bakshi@dal.ca)
+========================================================= */
+
 import React from 'react';
 import { getCourseByName } from '../services/courses';
 import { useParams } from 'react-router-dom';
