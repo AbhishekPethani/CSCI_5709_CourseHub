@@ -97,6 +97,8 @@ export default function Login() {
           localStorage.setItem("logged_in_user", email);
           if (email === "sourav@gmail.com") {
             localStorage.setItem("isAdmin", true);
+          } else {
+            localStorage.setItem("isAdmin", false);
           }
           return true;
         } else {

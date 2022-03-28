@@ -14,6 +14,7 @@ import Coupons from "../coupons";
 import Login from "../Login";
 import Profile from "../Profile";
 import Order from "../../pages/Order";
+import Logout from "../Sign out";
 
 const NavbarComp = () => {
   return (
@@ -67,6 +68,10 @@ const NavbarComp = () => {
                   {" "}
                   Login{" "}
                 </Nav.Link>
+                <Nav.Link style={{ color: "white" }} as={Link} to={"/logout"}>
+                  {" "}
+                  Logout{" "}
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -81,6 +86,7 @@ const NavbarComp = () => {
           <Route exact path="/my-account" element={<Profile />} />
           <Route exact path="/discount" element={<Coupons />} />
           <Route exact path="/order" element={<Order />} />
+          <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/courses/:courseName" element={<CoursePage />} />
           <Route exact path="/authenticate/login" element={<Login />} />
         </Routes>
