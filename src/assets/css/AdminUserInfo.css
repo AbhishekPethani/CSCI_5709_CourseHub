@@ -1,6 +1,6 @@
 .userInfoItems {
-  display: none;
   position: absolute;
+  display: none;
   padding: 10px 20px;
   right: 25px;
   background: white;
@@ -11,6 +11,10 @@
 
 .userInfo:hover .userInfoItems {
   display: block;
+}
+.userInfoItems ul {
+  padding-left: 0rem !important;
+  margin-bottom: 0rem !important;
 }
 
 .userInfoItems li {
@@ -27,4 +31,6 @@
 .account-circle {
   font-size: 36px;
   color: white;
+  padding-right: 15px;
+  font-size: 30px !important;
 }
