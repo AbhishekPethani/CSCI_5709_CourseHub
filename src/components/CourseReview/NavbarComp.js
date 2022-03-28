@@ -19,6 +19,7 @@ import Logout from "../Sign out";
 import Register from "../Signup";
 import ForgotPassword from "../ForgotPassword";
 import AdminDashboard from "../Admin/AdminDashboard";
+import Wishlist from "../Wishlist/Wishlist"
 
 const NavbarComp = () => {
   const [isAdmin, setAdmin] = useState(
@@ -74,6 +75,10 @@ const NavbarComp = () => {
                     {" "}
                     My Orders{" "}
                   </Nav.Link>
+                  <Nav.Link style={{ color: "white" }} as={Link} to={"/wishlist"}>
+                    {" "}
+                    Wishlist{" "}
+                  </Nav.Link>
                   <Nav.Link
                     style={{ color: "white" }}
                     as={Link}
@@ -114,6 +119,7 @@ const NavbarComp = () => {
           <Route exact path="/authenticate/login" element={<Login />} />
           <Route exact path="/authenticate/register" element={<Register />} />
           <Route exact path="/admin" element={<AdminDashboard />} />
+          <Route exact path="/wishlist" element={<Wishlist />} />
           <Route
             exact
             path="/authenticate/forgotPassword"
