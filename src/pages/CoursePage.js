@@ -65,13 +65,14 @@ function CoursePage() {
         });
     }, []);
 
-    let courseName, courseDescription, coursePrice, courseImage, courseAuthor ;
+    let courseName, courseDescription, coursePrice, courseImage, courseAuthor, purchasedBy ;
     if(course !== undefined && course.length > 0){
         courseName = course[0].courseName;
         courseDescription = course[0].courseDescription;
         coursePrice = course[0].coursePrice;
         courseImage = course[0].courseImage;
         courseAuthor = course[0].courseAuthor;
+        purchasedBy = course[0].purchasedBy;
     }
 
     return (
@@ -107,7 +108,7 @@ function CoursePage() {
           Add to Cart
         </Button>
       </CardActions>
-      <ReviewSection  courseName = {courseName} />
+      <ReviewSection  courseName = {courseName} purchasedBy = {purchasedBy} />
     </Card>
     );
 }
