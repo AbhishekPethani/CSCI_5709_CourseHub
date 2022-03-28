@@ -85,7 +85,8 @@ export default function ForgotPassword() {
   }
   function checkForgotPasswordrequirments() {
     return fetch(
-      "https://tutorial5709-3.herokuapp.com/authenticate/" + currentUser,
+      "https://csci-5709-course-hub-backend.herokuapp.com//authenticate/" +
+        currentUser,
       {
         method: "GET",
         headers: {
