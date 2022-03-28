@@ -1,6 +1,7 @@
 import NavbarComp from "./components/CourseReview/NavbarComp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Wishlist from "./components/Wishlist/Wishlist"
 
 function App() {
   return (

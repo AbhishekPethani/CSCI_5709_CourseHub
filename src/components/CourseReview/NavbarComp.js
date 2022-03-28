@@ -19,6 +19,7 @@ import Logout from "../Sign out";
 import Register from "../Signup";
 import ForgotPassword from "../ForgotPassword";
 import AdminDashboard from "../Admin/AdminDashboard";
+import Wishlist from "../Wishlist/Wishlist"
 
 const NavbarComp = () => {
   const [isAdmin, setAdmin] = useState(
