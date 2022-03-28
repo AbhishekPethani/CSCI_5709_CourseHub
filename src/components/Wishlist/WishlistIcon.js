@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect, useState } from 'react';
 import './../../assets/css/WishlistIcon.css'
 
-const wishlistEndpoint = 'http://localhost:3000/wishlist/';
+const wishlistEndpoint = 'https://csci-5709-course-hub-backend.herokuapp.com/wishlist/'
 
 export default function WishlistIcon(props) {
     const SILVER_COLOR_CODE = "#C0C0C0";
