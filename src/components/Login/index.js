@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
   },
   background: {
     background: "linear-gradient(#e66465, #9198e5)",
-    height: "1400px"
+    height: "1800px"
   }
 }));
 
@@ -74,7 +74,7 @@ export default function Login() {
   async function read() {
     const ch = await checkRegistration();
     console.log("reached");
-    if (ch == true) navigate("/profile");
+    if (ch == true) navigate("/my-account");
     else {
       alert("login details do not match");
     }
@@ -106,7 +106,7 @@ export default function Login() {
   }
 
   return (
-    <div className={classes.background}>
+    <div className={classes.background} style={{ marginTop: "0px" }}>
       {/* <Appbar></Appbar> */}
 
       <Paper elevation={24} style={styleForPaper}>
