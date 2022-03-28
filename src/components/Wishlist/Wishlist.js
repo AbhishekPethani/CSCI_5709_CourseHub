@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import '../../assets/css/wishlist.css'
-import { useParams } from 'react-router-dom';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import 'bootstrap/dist/css/bootstrap.css'
 import './WishlistIcon';
 import WishlistIcon from './WishlistIcon';
@@ -10,7 +8,7 @@ import WishlistIcon from './WishlistIcon';
 const wishlistEndpoint = 'https://csci-5709-course-hub-backend.herokuapp.com/wishlist/'
 
 export default function Wishlist(props) {
-    const {userId} = useParams();
+    const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
     const [courseToUpdate, setCourseToUpdate] = useState(null);
     const [courses, setCourses] = useState([]);
     const [wishlist, setWishlist] = useState([]);
