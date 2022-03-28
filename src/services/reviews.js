@@ -4,7 +4,7 @@
 import axios from 'axios';
 
 // Backend URL
-const backEndURL = 'http://localhost:3000/reviews';
+const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/reviews';
 
 // Method to add new review in the database for selected course
 const addReviewByCourseName = (review) => {
