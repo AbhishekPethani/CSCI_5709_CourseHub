@@ -89,7 +89,7 @@ const NavbarComp = () => {
       </div>
       <div>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Login />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/courses" element={<Courses />} />
           <Route exact path="/my-courses" element={<MyCourses />} />
