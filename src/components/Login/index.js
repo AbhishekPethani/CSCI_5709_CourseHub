@@ -107,7 +107,7 @@ export default function Login() {
 
   return (
     <div className={classes.background}>
-      <Appbar></Appbar>
+      {/* <Appbar></Appbar> */}
 
       <Paper elevation={24} style={styleForPaper}>
         <div className={classes.container}>

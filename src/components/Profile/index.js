@@ -79,7 +79,7 @@ export default function Profile() {
   currentUser = localStorage.getItem("logged_in_user");
   return (
     <div className={classes.background}>
-      <Appbar></Appbar>
+      {/* <Appbar></Appbar> */}
       <Paper elevation={24} style={styleForPaper}>
         <div className={classes.container}>
           <Typography variant="h5" component="div">

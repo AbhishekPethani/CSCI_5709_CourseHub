@@ -125,7 +125,7 @@ export default function ForgotPassword() {
   };
   return (
     <div className={classes.background}>
-      <Appbar></Appbar>
+      {/* <Appbar></Appbar> */}
       <div className={classes.container}>
         <Paper elevation={24} style={styleForPaper}>
           <Box className={classes.box}>
