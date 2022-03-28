@@ -29,15 +29,19 @@ const useStyles = makeStyles(() => ({
   form: {
     display: "grid",
     width: 400,
-    gridRowGap: 20
+    gridRowGap: 20,
+    marginLeft: "50px"
   },
   signIn: {
-    margin: "20px 0px 20px 0px"
+    margin: "20px 0px 20px 0px",
+    width: "100px",
+    marginLeft: "180px"
   },
   forgotPassword: {
     display: "grid",
     placeContent: "space-between",
-    gridAutoFlow: "column"
+    gridAutoFlow: "column",
+    marginLeft: "30px"
   },
   background: {
     background: "linear-gradient(#e66465, #9198e5)",
@@ -47,11 +51,12 @@ const useStyles = makeStyles(() => ({
 
 export default function Login() {
   const styleForPaper = {
-    padding: 20,
-    height: "50vh",
+    // padding: 20,
+    height: "40vh",
     width: 500,
-    margin: "20px auto",
-    marginTop: "100px",
+    margin: "auto",
+    marginTop: "2px",
+
     display: "flex"
   }; //css for the paper cards
 
@@ -112,11 +117,10 @@ export default function Login() {
   }
 
   return (
-    <div className={classes.background} style={{ marginTop: "0px" }}>
+    <div className={classes.background}>
       {/* <Appbar></Appbar> */}
-
-      <Paper elevation={24} style={styleForPaper}>
-        <div className={classes.container}>
+      <div className={classes.container}>
+        <Paper elevation={24} style={styleForPaper}>
           <Box className={classes.box}>
             <Typography component="h1" variant="h5">
               SIGN IN
@@ -152,36 +156,27 @@ export default function Login() {
                   href=""
                   variant="body2"
                   onClick={() => {
-                    navigate("/forgotPassword");
+                    navigate("/authenticate/forgotPassword");
                   }}
                 >
                   Forgot password?
                 </Link>
                 <Link
                   href=""
+                  style={{ marginRight: "15px" }}
                   variant="body2"
                   onClick={() => {
-                    navigate("/");
+                    navigate("/authenticate/register");
                   }}
                 >
                   {"Sign Up"}
                 </Link>
               </div>
-              <div>
-                <Link
-                  href=""
-                  variant="body2"
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                >
-                  Register
-                </Link>
-              </div>
             </Box>
           </Box>
-        </div>
-      </Paper>
+        </Paper>
+      </div>
     </div>
   );
 }
+// citation for the paper and the paper styling is -https://www.youtube.com/watch?v=L2RnP5vhbdg&t=640s

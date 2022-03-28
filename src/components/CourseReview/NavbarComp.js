@@ -17,7 +17,7 @@ import Profile from "../Profile";
 import Order from "../../pages/Order";
 import Logout from "../Sign out";
 import Register from "../Signup";
-
+import ForgotPassword from "../ForgotPassword";
 const NavbarComp = () => {
   return (
     <Router>
@@ -74,7 +74,11 @@ const NavbarComp = () => {
                   {" "}
                   Logout{" "}
                 </Nav.Link>
-                <Nav.Link style={{ color: "white" }} as={Link} to={"/register"}>
+                <Nav.Link
+                  style={{ color: "white" }}
+                  as={Link}
+                  to={"/authenticate/register"}
+                >
                   {" "}
                   Register{" "}
                 </Nav.Link>
@@ -96,6 +100,11 @@ const NavbarComp = () => {
           <Route exact path="/courses/:courseName" element={<CoursePage />} />
           <Route exact path="/authenticate/login" element={<Login />} />
           <Route exact path="/authenticate/register" element={<Register />} />
+          <Route
+            exact
+            path="/authenticate/forgotPassword"
+            element={<ForgotPassword />}
+          />
         </Routes>
       </div>
     </Router>

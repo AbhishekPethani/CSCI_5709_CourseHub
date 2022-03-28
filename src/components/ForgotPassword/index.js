@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Appbar from "../AppBar/AppBar";
-
+import Grid from "@mui/material/Grid";
 const useStyles = makeStyles(() => ({
   container: {
     maxWidth: 500,
@@ -24,10 +24,11 @@ const useStyles = makeStyles(() => ({
   form: {
     display: "grid",
     width: 400,
-    gridRowGap: 20
+    gridRowGap: 20,
+    marginLeft: "37px"
   },
   signIn: {
-    margin: "20px 0px 20px 0px"
+    margin: "20px 10px 20px 40px"
   },
   forgotPassword: {
     display: "grid",
@@ -38,6 +39,7 @@ const useStyles = makeStyles(() => ({
   },
   background: {
     background: "linear-gradient(#e66465, #9198e5)",
+    width: "100%",
     height: "1400px"
   }
 }));
@@ -118,8 +120,8 @@ export default function ForgotPassword() {
   }
   const styleForPaper = {
     padding: 20,
-    height: "50vh",
-    width: 400,
+    height: "70vh",
+    width: 500,
     margin: "20px auto",
     marginTop: "100px",
     display: "flex"
@@ -128,66 +130,68 @@ export default function ForgotPassword() {
     <div className={classes.background}>
       {/* <Appbar></Appbar> */}
       <div className={classes.container}>
-        <Paper elevation={24} style={styleForPaper}>
-          <Box className={classes.box}>
-            <Typography component="h1" variant="h5">
-              Forgot Password
-            </Typography>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              className={classes.smallerBox}
-            >
-              <div className={classes.form}>
-                <TextField
-                  autoFocus
-                  required
-                  fullWidth
-                  name="email"
-                  label="Email Address"
-                />
-                <Typography component="h1" variant="h5">
-                  Enter the answer to the Security Question
-                </Typography>
-                <TextField
-                  required
-                  fullWidth
-                  name="answer"
-                  label="What is your place of birth"
-                  type="text"
-                />
-                <TextField
-                  label="Password"
-                  fullWidth
-                  required
-                  type="password"
-                  name="password"
-                />
-                <TextField
-                  label="Confirm Password"
-                  fullWidth
-                  required
-                  type="password"
-                  name="cpassword"
-                />
-              </div>
-              <div className={classes.signIn}>
-                <Button type="submit" fullWidth variant="contained">
-                  Reset Password
-                </Button>
-              </div>
-              <div className={classes.signIn} fullWidth variant="contained">
-                <Button
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                >
-                  Sign Up
-                </Button>
-              </div>
+        <Grid item xs={12} sm={6}>
+          <Paper elevation={24} style={styleForPaper} xs={4}>
+            <Box className={classes.box}>
+              <Typography component="h3" variant="h5">
+                FORGOT PASSWORD
+              </Typography>
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                className={classes.smallerBox}
+              >
+                <div className={classes.form}>
+                  <TextField
+                    autoFocus
+                    required
+                    fullWidth
+                    name="email"
+                    label="Email Address"
+                  />
+                  <Typography component="h1" variant="h5">
+                    Enter the answer to the Security Question
+                  </Typography>
+                  <TextField
+                    required
+                    fullWidth
+                    name="answer"
+                    label="What is your place of birth"
+                    type="text"
+                  />
+                  <TextField
+                    label="Password"
+                    fullWidth
+                    required
+                    type="password"
+                    name="password"
+                  />
+                  <TextField
+                    label="Confirm Password"
+                    fullWidth
+                    required
+                    type="password"
+                    name="cpassword"
+                  />
+                </div>
+                <div className={classes.signIn}>
+                  <Button type="submit" fullWidth variant="contained">
+                    Reset Password
+                  </Button>
+                </div>
+                <div className={classes.signIn} fullWidth variant="contained">
+                  <Button
+                    onClick={() => {
+                      navigate("/authenticate/register");
+                    }}
+                  >
+                    Sign Up
+                  </Button>
+                </div>
+              </Box>
             </Box>
-          </Box>
-        </Paper>
+          </Paper>
+        </Grid>
       </div>
     </div>
   );

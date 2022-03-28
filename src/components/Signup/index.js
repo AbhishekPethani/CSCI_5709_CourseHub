@@ -137,17 +137,13 @@ export default function Signup() {
   }
   const styleForPaper = {
     padding: 20,
-    height: "80vh",
+    height: "90vh",
     width: 500,
     margin: "20px auto"
   };
 
   return (
     <div
-      // style={{
-      //   backgroundImage: `url(${background})`,
-      //   backgroundRepeat: "no-repeat"
-      // }}
       className={classes.background}
       style={{ display: "auto", flexGrow: 1 }}
     >
@@ -222,7 +218,7 @@ export default function Signup() {
                   href=""
                   variant="body2"
                   onClick={() => {
-                    navigate("/login");
+                    navigate("/authenticate/login");
                   }}
                 >
                   Sign in

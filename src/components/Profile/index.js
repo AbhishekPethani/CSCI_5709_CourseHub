@@ -43,8 +43,8 @@ const useStyles = makeStyles(() => ({
 export default function Profile() {
   const styleForPaper = {
     padding: 20,
-    height: "30vh",
-    width: 700,
+    height: "20vh",
+    width: 400,
     margin: "20px auto"
   };
   const classes = useStyles();
@@ -83,8 +83,8 @@ export default function Profile() {
   return (
     <div className={classes.background}>
       {/* <Appbar></Appbar> */}
-      <Paper elevation={24} style={styleForPaper}>
-        <div className={classes.container}>
+      <div className={classes.container}>
+        <Paper elevation={24} style={styleForPaper}>
           <Typography variant="h5" component="div">
             WELCOME USER
           </Typography>
@@ -101,8 +101,8 @@ export default function Profile() {
               Delete User
             </Button>
           </div>
-        </div>
-      </Paper>
+        </Paper>
+      </div>
     </div>
   );
 }
