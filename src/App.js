@@ -7,7 +7,7 @@ import Course from "./pages/AdminCourse";
 import "./App.css";
 
 function App() {
-  // const [selectedTab, setSelectedTab] = useState("1");
+  const [selectedTab, setSelectedTab] = useState("1");
   return (
     <span>
       <div className="App">
