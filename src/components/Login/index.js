@@ -83,7 +83,13 @@ export default function Login() {
   async function read() {
     const ch = await checkRegistration();
     console.log(localStorage.getItem("isAdmin") === "true" && ch);
-    if (ch == true) navigate("/my-account");
+    if (ch == true) {
+      if (email === "sourav@gmail.com") {
+        window.open('/admin', '_self');
+      } else {
+        navigate("/my-account");
+      }
+    }
     else {
       alert("login details do not match");
     }
@@ -92,7 +98,7 @@ export default function Login() {
   function checkRegistration() {
     return fetch(
       "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/" +
-        email,
+      email,
       {
         method: "GET",
         headers: {
