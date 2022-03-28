@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Abhishek Pareshbhai Pethani] (ab823206@dal.ca)
+========================================================= */
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
@@ -29,7 +32,6 @@ const button = {
 };
 
 // This function is used to prevent useEffect hook from running on initial render. 
-// https://thewebdev.info/2021/03/13/how-to-make-the-react-useeffect-hook-not-run-on-initial-render/
 const useDidMountEffect = (func, deps) => {
   const didMount = useRef(false);
   useEffect(() => {

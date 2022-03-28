@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Abhishek Pareshbhai Pethani] (ab823206@dal.ca)
+========================================================= */
 import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import '../../assets/css/course-home-page.css'
@@ -8,7 +11,7 @@ import { deleteReviewByID, addReviewByCourseName } from '../../services/reviews'
 import DeleteReviewDialog from './DeleteReviewDialog';
 import axios from 'axios';
 
-const ReviewSection = ( {courseName} ) => {
+const ReviewSection = ( { courseName, purchasedBy } ) => {
   // current logged in user
   const currentUser = "Abhishek";
 
@@ -67,7 +70,14 @@ const ReviewSection = ( {courseName} ) => {
       }
       <Grid container border= "1px solid rgba(0,0,0,.125)" border-radius="0.25rem">
         <Grid container width="100%" direction="row" justify="right">
-          <Box sx={{ pt:'1.5%', pl:'89%' }}><Button onClick={() => setIsShow(true)} variant="outlined"> Add Review </Button> </Box>
+          { // if the the selected course is purchased bu current user then only display the
+            // Add Review button otherwise do not display button
+            purchasedBy ? 
+            purchasedBy.includes(currentUser) ?
+            <Box sx={{ pt:'1.5%', pl:'89%' }}><Button onClick={() => setIsShow(true)} variant="outlined"> Add Review </Button> </Box>
+            : <></> 
+            : <></>
+          }
         </Grid>
         <Grid container direction="column" alignItems="center" justify="center">
           { /* If reviews exists for this course then use map function 
