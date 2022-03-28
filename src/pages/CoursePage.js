@@ -7,21 +7,12 @@ import { getCourseByName } from '../services/courses';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 import { autocompleteClasses } from '@mui/material';
@@ -69,7 +60,7 @@ function CoursePage() {
         });
     }, []);
 
-    let courseName, courseDescription, coursePrice, courseImage, courseAuthor, purchasedBy ;
+    let courseName, courseDescription, coursePrice, courseImage, courseAuthor, purchasedBy, courseDetails ;
     if(course !== undefined && course.length > 0){
         courseName = course[0].courseName;
         courseDescription = course[0].courseDescription;
@@ -77,6 +68,7 @@ function CoursePage() {
         courseImage = course[0].courseImage;
         courseAuthor = course[0].courseAuthor;
         purchasedBy = course[0].purchasedBy;
+        courseDetails = course[0].courseDetails;
     }
 
     return (
@@ -96,12 +88,12 @@ function CoursePage() {
             Created By: {courseAuthor}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {courseDescription}
+            {courseDetails}
           </Typography>
           <br/>
           <Typography gutterBottom variant="h5" component="h2">
             ${coursePrice}
-          </Typography>
+          </Typography> 
         </CardContent>
       </CardActionArea>
       <CardActions>

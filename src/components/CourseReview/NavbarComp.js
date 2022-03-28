@@ -42,6 +42,7 @@ const NavbarComp = () => {
                   style={{ color: "white" }}
                   as={Link}
                   to={"/my-courses"}
+                  disabled={"true"}
                 >
                   {" "}
                   My Courses{" "}
@@ -58,7 +59,7 @@ const NavbarComp = () => {
                   {" "}
                   Discounts{" "}
                 </Nav.Link>
-                <Nav.Link style={{ color: "white" }} as={Link} to={"/order"}>
+                <Nav.Link style={{ color: "white" }} as={Link} to={"/order"} disabled={"true"}>
                   {" "}
                   My Orders{" "}
                 </Nav.Link>
@@ -82,6 +83,16 @@ const NavbarComp = () => {
                   {" "}
                   Register{" "}
                 </Nav.Link>
+                <Nav.Link
+                  style={{ color: "white" }}
+                  as={Link}
+                  to={"/cart"}
+                  disabled={"true"}
+                >
+                  {" "}
+                  Cart{" "}
+                </Nav.Link>
+
               </Nav>
             </Navbar.Collapse>
           </Container>
