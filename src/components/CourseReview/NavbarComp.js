@@ -15,6 +15,7 @@ import Login from "../Login";
 import Profile from "../Profile";
 import Order from "../../pages/Order";
 import Logout from "../Sign out";
+import Register from "../Signup";
 
 const NavbarComp = () => {
   return (
@@ -72,6 +73,10 @@ const NavbarComp = () => {
                   {" "}
                   Logout{" "}
                 </Nav.Link>
+                <Nav.Link style={{ color: "white" }} as={Link} to={"/register"}>
+                  {" "}
+                  Register{" "}
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -89,6 +94,7 @@ const NavbarComp = () => {
           <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/courses/:courseName" element={<CoursePage />} />
           <Route exact path="/authenticate/login" element={<Login />} />
+          <Route exact path="/authenticate/register" element={<Register />} />
         </Routes>
       </div>
     </Router>

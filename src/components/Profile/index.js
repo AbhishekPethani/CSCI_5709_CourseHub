@@ -64,13 +64,16 @@ export default function Profile() {
     navigate("/");
   };
   function deleteProfile() {
-    return fetch("http://localhost:5000/authenticate/delete", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(creds)
-    })
+    return fetch(
+      "https://csci-5709-course-hub-backend.herokuapp.com//authenticate/delete",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(creds)
+      }
+    )
       .then(response => response.json())
       .then(data => {
         console.log(data);

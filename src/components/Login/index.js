@@ -81,12 +81,16 @@ export default function Login() {
   }
 
   function checkRegistration() {
-    return fetch("https://tutorial5709-3.herokuapp.com/authenticate/" + email, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
+    return fetch(
+      "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/" +
+        email,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
       }
-    })
+    )
       .then(response => response.json())
       .then(data => {
         console.log(data.users[0]);

@@ -120,13 +120,16 @@ export default function Signup() {
   };
 
   function getResultant(creds) {
-    return fetch("https://tutorial5709-3.herokuapp.com/authenticate/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(creds)
-    })
+    return fetch(
+      "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/add",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(creds)
+      }
+    )
       .then(response => response.json())
       .then(data => {
         return data;
