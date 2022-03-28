@@ -6,8 +6,7 @@ function Header() {
   return (
     <header className='protoHeader'>
       <div className='logo-name clickable'>
-        {/* <img src={logo} className="logo" alt="Course Hub App" /> */}
-        <div className='app-name'>Course Hub</div>
+        <div className='app-name'>CourseHub</div>
       </div>
       <UserInfo />
     </header>
