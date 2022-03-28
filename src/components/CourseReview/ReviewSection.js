@@ -68,6 +68,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
     <>
       {// ReviewSection component
       }
+      <Typography gutterBottom variant="h5" component="h2"align='center'>REVIEWS</Typography>
       <Grid container border= "1px solid rgba(0,0,0,.125)" border-radius="0.25rem">
         <Grid container width="100%" direction="row" justify="right">
           { // if the the selected course is purchased bu current user then only display the
