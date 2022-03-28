@@ -37,7 +37,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
   // useEffect hook to get all the review for selected course from the database
   useEffect(()=>{
     // Backend URL
-    const backEndURL = 'http://localhost:3000/reviews';
+    const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/reviews';
     // fetch all the reviews from the database for selected course
     axios.get(backEndURL + '/' + courseName)
     .then((response) => {
