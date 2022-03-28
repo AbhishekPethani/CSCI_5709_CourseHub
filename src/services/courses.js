@@ -15,4 +15,15 @@ const getCourses = (course) => {
     // })
 }
 
-export { getCourses }
+// Method to get all the courses
+const getCourseByName = (courseName) => {
+    return axios.get(backEndURL + `/${courseName}`);
+    // .then((response) => {   
+    //     return response.data.courses;
+    // })
+    // .catch((error) => {
+    //     console.log(error)
+    // })
+}
+
+export { getCourses, getCourseByName }
