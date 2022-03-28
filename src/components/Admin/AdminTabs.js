@@ -8,13 +8,13 @@ function Tabs(props) {
           className={[props.selectedTab === "1" ? "active" : "", 'user-management', 'clickable'].join(' ')}
           onClick={() => props.handleTabChange("1")}
         >
-          User management
+          User Management
         </li>
         <li
           className={[props.selectedTab === "2" ? "active" : "", 'course-management', 'clickable'].join(' ')}
           onClick={() => props.handleTabChange("2")}
         >
-          Course management
+          Course Management
         </li>
       </ul>
     </section>
