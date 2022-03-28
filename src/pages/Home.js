@@ -14,6 +14,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import NavbarComp from '../components/NavbarComp';
 
 const useStyles = makeStyles({
   gridcontainer: {
@@ -56,6 +57,8 @@ const Home = () => {
   const classes = useStyles();
 
   return (
+    <>
+    <NavbarComp />
     <div>
        <FormControl component="fieldset">
             <FormLabel component="legend" required={true} >Category</FormLabel>
@@ -82,6 +85,7 @@ const Home = () => {
         </Grid>
       </div>
     </div>
+    </>
   );
 }
 

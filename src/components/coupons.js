@@ -10,6 +10,7 @@ import Appbar from "./Appbar";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import NavbarComp from './NavbarComp';
 
 import { Navigate } from "react-router";
 
@@ -51,6 +52,8 @@ export default function Profile() {
 
   const classes = useStyles();
   return (
+    <div>
+      <NavbarComp />
     <div className={classes.background}>
       {/* <Appbar></Appbar> */}
 
@@ -94,6 +97,7 @@ export default function Profile() {
             ))}
         </Grid>
       </div>
+    </div>
     </div>
   );
 }

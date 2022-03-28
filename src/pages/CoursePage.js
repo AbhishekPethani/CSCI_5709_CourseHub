@@ -17,7 +17,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 import { autocompleteClasses } from '@mui/material';
 import ReviewSection from "../components/CourseReview/ReviewSection";
-
+import NavbarComp from '../components/NavbarComp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -72,6 +72,8 @@ function CoursePage() {
     }
 
     return (
+      <>
+      <NavbarComp />
         <Card size="lg" className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -106,6 +108,7 @@ function CoursePage() {
       </CardActions>
       <ReviewSection  courseName = {courseName} purchasedBy = {purchasedBy} />
     </Card>
+    </>
     );
 }
 

@@ -50,6 +50,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Login() {
+
+  localStorage.setItem("isAdmin", false);
   localStorage.setItem("logged_in_user", "");
-  return <div>Logged ut</div>;
+  window.open('/', '_self'); 
 }

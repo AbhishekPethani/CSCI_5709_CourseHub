@@ -87,7 +87,7 @@ export default function Login() {
       if (email === "sourav@gmail.com") {
         window.open('/admin', '_self');
       } else {
-        navigate("/my-account");
+        navigate("/home");
       }
     }
     else {

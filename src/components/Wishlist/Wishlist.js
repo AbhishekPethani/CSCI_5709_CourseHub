@@ -4,6 +4,7 @@ import '../../assets/css/wishlist.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import './WishlistIcon';
 import WishlistIcon from './WishlistIcon';
+import NavbarComp from '../NavbarComp';
 
 const wishlistEndpoint = 'https://csci-5709-course-hub-backend.herokuapp.com/wishlist/'
 
@@ -115,6 +116,8 @@ export default function Wishlist(props) {
     }
 
     return (
+        <div>
+            <NavbarComp />
         <div className='wishlist-root'>
             <h1>Wishlist</h1>
             <hr/>
@@ -139,6 +142,7 @@ export default function Wishlist(props) {
                 </div>
             ))}
             </div>
+        </div>
         </div>
     )
 };

@@ -76,7 +76,7 @@ export default function ForgotPassword() {
       creds = { currentUser, password };
       read();
 
-      navigate("/login");
+      navigate("/");
     }
   };
   async function read() {
@@ -90,7 +90,7 @@ export default function ForgotPassword() {
   }
   function checkForgotPasswordrequirments() {
     return fetch(
-      "https://csci-5709-course-hub-backend.herokuapp.com//authenticate/" +
+      "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/" +
         currentUser,
       {
         method: "GET",

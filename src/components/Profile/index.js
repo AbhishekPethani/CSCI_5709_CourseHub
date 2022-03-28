@@ -6,7 +6,8 @@ import { Card, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Button, Link, TextField, Paper, Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import Appbar from "../AppBar/AppBar";
+import NavbarComp from '../NavbarComp';
+
 const useStyles = makeStyles(() => ({
   container: {
     maxWidth: 500,
@@ -91,6 +92,8 @@ export default function Profile() {
     }
   });
   return (
+    <div>
+      <NavbarComp />    
     <div className={classes.background}>
       {/* <Appbar></Appbar> */}
       <div className={classes.container}>
@@ -113,6 +116,7 @@ export default function Profile() {
           </div>
         </Paper>
       </div>
+    </div>
     </div>
   );
 }
