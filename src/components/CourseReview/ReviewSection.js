@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Abhishek Pareshbhai Pethani] (ab823206@dal.ca)
+========================================================= */
 import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import '../../assets/css/course-home-page.css'
