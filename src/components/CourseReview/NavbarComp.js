@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Abhishek Pareshbhai Pethani] (ab823206@dal.ca)
+========================================================= */
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -13,17 +16,17 @@ const NavbarComp = () => {
   return (
     <Router>
     <div>
-      <Navbar bg="primary" variant={"dark"} expand="lg" >
+      <Navbar style={{backgroundColor:"#3f51b5"}} variant={"dark"} expand="lg" >
         <Container>
           <Navbar.Brand as={Link} to={"/home"}>CourseHub</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to={"/home"}> Home </Nav.Link>
-              <Nav.Link as={Link} to={"/my-courses"}> My Courses </Nav.Link>
-              <Nav.Link as={Link} to={"/my-account"}> My Account </Nav.Link>
-              <Nav.Link as={Link} to={"/discount"}> Discounts </Nav.Link>
-              <Nav.Link as={Link} to={"/order"}> My Orders </Nav.Link>
+              <Nav.Link style={{color:"white"}} as={Link} to={"/home"}> Home </Nav.Link>
+              <Nav.Link style={{color:"white"}} as={Link} to={"/my-courses"}> My Courses </Nav.Link>
+              <Nav.Link style={{color:"white"}} as={Link} to={"/my-account"}> My Account </Nav.Link>
+              <Nav.Link style={{color:"white"}} as={Link} to={"/discount"}> Discounts </Nav.Link>
+              <Nav.Link style={{color:"white"}} as={Link} to={"/order"}> My Orders </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
