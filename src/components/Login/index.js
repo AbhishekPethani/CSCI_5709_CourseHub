@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
+
 import React, { useState } from "react";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -78,8 +82,14 @@ export default function Login() {
 
   async function read() {
     const ch = await checkRegistration();
-    console.log("reached");
-    if (ch == true) navigate("/my-account");
+    console.log(localStorage.getItem("isAdmin") === "true" && ch);
+    if (ch == true) {
+      if (email === "sourav@gmail.com") {
+        window.open('/admin', '_self');
+      } else {
+        navigate("/my-account");
+      }
+    }
     else {
       alert("login details do not match");
     }
@@ -88,7 +98,7 @@ export default function Login() {
   function checkRegistration() {
     return fetch(
       "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/" +
-        email,
+      email,
       {
         method: "GET",
         headers: {

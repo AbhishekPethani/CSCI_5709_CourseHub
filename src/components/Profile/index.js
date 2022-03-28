@@ -1,4 +1,7 @@
-import React from "react";
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
+import React, { useEffect } from "react";
 import { Card, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Button, Link, TextField, Paper, Avatar } from "@mui/material";
@@ -79,7 +82,14 @@ export default function Profile() {
         console.log(data);
       });
   }
-  currentUser = localStorage.getItem("logged_in_user");
+  useEffect(() => {
+    currentUser = localStorage.getItem("logged_in_user");
+
+    if (currentUser === null) {
+      alert("Please sign in to accesss the account");
+      navigate("/authenticate/login");
+    }
+  });
   return (
     <div className={classes.background}>
       {/* <Appbar></Appbar> */}

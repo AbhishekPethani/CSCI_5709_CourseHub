@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUri = "http://localhost:3000/admin/";
+const baseUri = "https://csci-5709-course-hub-backend.herokuapp.com/admin/";
 
 const HttpClient = {
   get: (resourceUri) => {

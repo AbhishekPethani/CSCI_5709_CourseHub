@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
 import React, { useState } from "react";
 import {
   Box,
