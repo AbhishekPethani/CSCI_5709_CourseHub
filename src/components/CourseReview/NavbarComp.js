@@ -1,6 +1,7 @@
 import React from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import CoursePage from '../../pages/CoursePage';
 import Courses from '../../pages/Courses';
 import Discount from '../../pages/Discount';
 import Home from '../../pages/Home';
@@ -12,18 +13,17 @@ const NavbarComp = () => {
   return (
     <Router>
     <div>
-      <Navbar bg="dark" variant={"dark"} expand="lg">
+      <Navbar bg="primary" variant={"dark"} expand="lg" >
         <Container>
-          <Navbar.Brand as={Link} to={"/home"}>Logo</Navbar.Brand>
+          <Navbar.Brand as={Link} to={"/home"}>CourseHub</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to={"/home"}> Home </Nav.Link>
-              <Nav.Link as={Link} to={"/courses"}> Courses </Nav.Link>
               <Nav.Link as={Link} to={"/my-courses"}> My Courses </Nav.Link>
               <Nav.Link as={Link} to={"/my-account"}> My Account </Nav.Link>
-              <Nav.Link as={Link} to={"/discount"}> Discount </Nav.Link>
-              <Nav.Link as={Link} to={"/order"}> Order </Nav.Link>
+              <Nav.Link as={Link} to={"/discount"}> Discounts </Nav.Link>
+              <Nav.Link as={Link} to={"/order"}> My Orders </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -38,6 +38,7 @@ const NavbarComp = () => {
         <Route exact path="/my-account" element={<MyAccount/>}  />
         <Route exact path="/discount" element={<Discount/>}  />
         <Route exact path="/order" element={<Order />}  />
+        <Route exact path="/courses/:courseName" element={<CoursePage />}  />
       </Routes>
     </div>
   </Router>
