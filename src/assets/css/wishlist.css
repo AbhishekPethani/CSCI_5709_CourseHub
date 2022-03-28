@@ -38,26 +38,6 @@
     max-height: 100px;
     overflow: hidden;
 }
-/*
-.favorite-btn {
-    height: 50px;
-    width: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 0px 0px 5px silver;
-}
-*/
-
-.favorite-btn {
-    height: 50px;
-    width: 50px;
-    border: 1px solid white;
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 0px 0px 5px silver;
-    text-align: right;
-}
 
 .tbl {
     width: 100%;
@@ -67,7 +47,8 @@
     text-align: right;
 }
 
-.favorite-btn > * {
-    width: 100%;
-    text-align: center;
+.wishlist-btn {
+    width: 50px;
+    margin-left: auto;
+    display: flex;
 }

@@ -4,6 +4,8 @@ import '../../assets/css/wishlist.css'
 import { useParams } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import 'bootstrap/dist/css/bootstrap.css'
+import './WishlistIcon';
+import WishlistIcon from './WishlistIcon';
 
 const wishlistEndpoint = 'https://csci-5709-course-hub-backend.herokuapp.com/wishlist/'
 
@@ -129,11 +131,9 @@ export default function Wishlist(props) {
                             <tr className='tbl-rw'>
                                 <td className='tbl-cell1'><h5>${course.coursePrice}</h5></td>
                                 <td className='tbl-cell2'>
-                                    <button className='favorite-btn'>
-                                        <div className='favorite-icon'>
-                                            <FavoriteIcon sx={{ fontSize: 35, color: course.colorCode}} onClick={() => setCourseId(course._id)}></FavoriteIcon>
-                                        </div>
-                                    </button>
+                                    <div className='wishlist-btn' onClick={() => {setCourseId(course._id)}}>
+                                        <WishlistIcon userId={userId} courseId={course._id}/>
+                                    </div>
                                 </td>
                             </tr>
                         </table>
