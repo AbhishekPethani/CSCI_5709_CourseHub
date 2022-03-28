@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
+
 import React, { useState } from "react";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -78,7 +82,7 @@ export default function Login() {
 
   async function read() {
     const ch = await checkRegistration();
-    console.log("reached");
+    console.log(localStorage.getItem("isAdmin") === "true" && ch);
     if (ch == true) navigate("/my-account");
     else {
       alert("login details do not match");

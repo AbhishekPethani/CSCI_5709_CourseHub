@@ -18,6 +18,7 @@ import Order from "../../pages/Order";
 import Logout from "../Sign out";
 import Register from "../Signup";
 import ForgotPassword from "../ForgotPassword";
+import User from "../../pages/AdminUser";
 const NavbarComp = () => {
   return (
     <Router>
@@ -90,6 +91,7 @@ const NavbarComp = () => {
       <div>
         <Routes>
           <Route exact path="/" element={<Login />} />
+          <Route exact path="/admin" element={<User />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/courses" element={<Courses />} />
           <Route exact path="/my-courses" element={<MyCourses />} />
@@ -100,6 +102,7 @@ const NavbarComp = () => {
           <Route exact path="/courses/:courseName" element={<CoursePage />} />
           <Route exact path="/authenticate/login" element={<Login />} />
           <Route exact path="/authenticate/register" element={<Register />} />
+
           <Route
             exact
             path="/authenticate/forgotPassword"

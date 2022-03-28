@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
+
 import React, { useState } from "react";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";

@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";

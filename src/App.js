@@ -1,4 +1,3 @@
-
 import NavbarComp from "./components/CourseReview/NavbarComp";
 import { useState } from "react";
 import Header from "./components/Admin/AdminHeader";
@@ -15,43 +14,44 @@ import "./App.css";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("1");
-  const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isAdmin') || 'false');
+  const [isAdmin, setIsAdmin] = useState(
+    localStorage.getItem("isAdmin") || "false"
+  );
 
-  const userSection =
+  const userSection = (
     <div className="App">
       <NavbarComp />
 
       <BrowserRouter>
         <Routes>
-          {/* <Route exact path="/login" element={<Login />} />
+          {/*
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/" element={<Signup />} />
         <Route exact path="/forgotPassword" element={<ForgotPassword />} /> */}
         </Routes>
       </BrowserRouter>
-    </div>;
+    </div>
+  );
 
-  const adminSection =
+  const adminSection = (
     <div className="admin-app">
       <Header />
       <Tabs
         selectedTab={selectedTab}
-        handleTabChange={(tabIndex) => setSelectedTab(tabIndex)}
+        handleTabChange={tabIndex => setSelectedTab(tabIndex)}
       />
       {selectedTab === "1" && <User />}
       {selectedTab === "2" && <Course />}
-
-    </div>;
+    </div>
+  );
 
   return (
     <span>
-
       {/* if isAdmin flag is false, display user dashboard */}
-      {isAdmin === 'false' && userSection}
+      {isAdmin === "false" && userSection}
 
       {/* if isAdmin flag is true, display admin dashboard */}
-      {isAdmin === 'true' && adminSection}
-
+      {isAdmin === "true" && adminSection}
     </span>
   );
 }
