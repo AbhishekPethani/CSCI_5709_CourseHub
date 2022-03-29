@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import { CourseUpsertModel } from "../Models/AdminCourseUpsertModel";
 import { DeleteModal } from "../Models/AdminDeleteModel";
-import HttpClient from "../services/HttpClient";
+import HttpClient from "../services/AdminHttpClient";
 import "../assets/css/AdminCourse.css";
 
 function Course() {

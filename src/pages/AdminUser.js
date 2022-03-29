@@ -6,7 +6,7 @@ import Toaster from "../components/Admin/AdminToaster";
 import { DeleteModal } from "../Models/AdminDeleteModel";
 import { EditUserModal } from "../Models/AdminEditUserModel";
 import "../assets/css/AdminUser.css";
-import HttpClient from "../services/HttpClient";
+import HttpClient from "../services/AdminHttpClient";
 
 function User() {
   const [message, setToasterMessage] = useState("");
