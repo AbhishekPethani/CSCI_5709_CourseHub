@@ -64,7 +64,7 @@ export default function Profile() {
                 return user;
               })
               .map(user => (
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={10} sm={6} md={4}>
                   <Card
                     sx={{
                       margin: "30px",
@@ -74,9 +74,9 @@ export default function Profile() {
                   >
                     <CardMedia
                       component="img"
-                      height="265"
+                      height="365px"
                       image={user.src}
-                      alt="green iguana"
+                      alt="IMAGE"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
