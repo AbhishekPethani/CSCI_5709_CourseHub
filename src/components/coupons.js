@@ -20,10 +20,6 @@ import { Navigate } from "react-router";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
-  },
-  background: {
-    height: "2000px",
-    background: "linear-gradient(#9198e5,#e66465)"
   }
 }));
 export default function Profile() {
