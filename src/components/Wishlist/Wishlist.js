@@ -1,3 +1,9 @@
+/**
+ * @Author  Jay Bipinchandra Patel
+ * @Banner  B00886902
+ * @NetID   jy439129
+ * @EmailId jy43p129@dal.ca
+ */
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import '../../assets/css/wishlist.css'
