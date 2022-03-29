@@ -1,5 +1,5 @@
 /*=======================================================
- Author: [Aditya Bakshi] (aditya.bakshi@dal.ca)
+ Author: [Aditya Bakshi] (aditya.bakshi@dal.ca )
 ========================================================= */
 
 import React from 'react';
