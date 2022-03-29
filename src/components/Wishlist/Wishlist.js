@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './WishlistIcon';
 import WishlistIcon from './WishlistIcon';
 import NavbarComp from '../NavbarComp';
+import { useNavigate } from 'react-router-dom';
 
 const wishlistEndpoint = 'https://csci-5709-course-hub-backend.herokuapp.com/wishlist/'
 
@@ -15,6 +16,8 @@ export default function Wishlist(props) {
     const [wishlist, setWishlist] = useState([]);
     const [courseId, setCourseId] = useState(null);
     const [isLoading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    const [navigateTo, setNavigateTo] = useState(null);
     
     async function removeCourse(courseId) {
         let filteredWishlist = wishlist.filter((course) => {
@@ -56,6 +59,9 @@ export default function Wishlist(props) {
             setCourses([...courses, courseToUpdate]);
         }
     }
+    async function navigateToCoursePage() {
+        navigate("./../courses/" + navigateTo);
+    }
 
     // executed when the first time component loaded
     useEffect(async ()=>{
@@ -75,6 +81,13 @@ export default function Wishlist(props) {
         addCourse();
         // console.log(courseToUpdate);
     }, [courseToUpdate]);
+
+    useEffect(() => {
+        if(navigateTo != null) {
+            navigateToCoursePage();
+        }
+        console.log(navigateTo);
+    }, [navigateTo]);
 
     // useEffect hook which will be executed every time courseId changes
     // whenever user clicks on a "remove from wishlist" option of any course
@@ -124,7 +137,9 @@ export default function Wishlist(props) {
             <div className='course-root'>
             {courses.map((course) => (
                 <div className='course'>
-                    <div className='course-img'><img src= {course.courseImage} alt={course.courseName}/></div>
+                    <div className='course-img' onClick={() => {setNavigateTo(course.courseName)}}>
+                        <img src= {course.courseImage} alt={course.courseName}/>
+                    </div>
                     <div className='course-detail'>
                         <div><h4>{course.courseName}</h4></div>
                         <div className='course-desc'>{course.courseDescription}</div>
