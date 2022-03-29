@@ -116,9 +116,6 @@ function CoursePage() {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary" disabled="true">
-          Add to Wishlist
-        </Button>
-        <Button size="small" color="primary" disabled="true">
           Add to Cart
         </Button>
       </CardActions>
