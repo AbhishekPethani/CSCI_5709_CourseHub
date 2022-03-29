@@ -18,6 +18,7 @@ import Button from '@material-ui/core/Button';
 import { autocompleteClasses } from '@mui/material';
 import ReviewSection from "../components/CourseReview/ReviewSection";
 import NavbarComp from '../components/NavbarComp';
+import WishlistIcon from "../components/Wishlist/WishlistIcon";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,6 +46,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 function CoursePage() {
+    const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
+    const [wishlist, setWishlist] = useState('');
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
     const [course, setCourse] = useState([]);
@@ -59,6 +62,12 @@ function CoursePage() {
             setCourse(response.data.course)
         });
     }, []);
+
+    useEffect(() => {
+      if(course.length > 0) {
+        setWishlist(<WishlistIcon userId={userId} courseId={course[0]._id} />);
+      }
+    }, [course]);
 
     let courseName, courseDescription, coursePrice, courseImage, courseAuthor, purchasedBy, courseDetails ;
     if(course !== undefined && course.length > 0){
@@ -84,7 +93,14 @@ function CoursePage() {
         />
         <CardContent>
           <Typography gutterBottom variant="h3" component="h2">
-            {courseName}
+            <table className='tbl'>
+              <tr>
+                <td className='tbl-cell1'>{courseName}</td>
+                <td className='tbl-cell2'>
+                  <div className='wishlist-btn'><Typography>{wishlist}</Typography></div>
+                </td>
+              </tr>
+            </table>
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             Created By: {courseAuthor}
