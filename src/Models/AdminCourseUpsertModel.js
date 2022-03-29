@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+ This feature is not a part of assignment 3. It is built for the project.
+========================================================= */
 import { useEffect, useState } from "react";
 import { Modal } from "../components/Admin/AdminModel";
 import { Validation } from "../components/Admin/AdminValidation";

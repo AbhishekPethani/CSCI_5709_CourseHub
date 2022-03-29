@@ -1,3 +1,7 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+ This feature is not a part of assignment 3. It is built for the project.
+========================================================= */
 import React, { useEffect, useState } from "react";
 import { CourseUpsertModel } from "../Models/AdminCourseUpsertModel";
 import { DeleteModal } from "../Models/AdminDeleteModel";

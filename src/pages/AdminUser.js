@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import React, { useEffect, useState } from "react";
 import Toaster from "../components/Admin/AdminToaster";
 import { DeleteModal } from "../Models/AdminDeleteModel";

@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import React, { useState } from "react";
 import Header from './AdminHeader';
 import Tabs from './AdminTabs';

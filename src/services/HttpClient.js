@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import axios from "axios";
 const baseUri = "https://csci-5709-course-hub-backend.herokuapp.com/admin/";
 
