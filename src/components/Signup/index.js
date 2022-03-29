@@ -16,6 +16,8 @@ import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 import Appbar from "../AppBar/AppBar";
 import App from "../../App";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
 
 /**
  * @Ridampreet
@@ -49,7 +51,7 @@ const useStyles = makeStyles(() => ({
   },
   form: {
     display: "grid",
-    width: 400,
+    width: "100%",
     gridRowGap: 20
   },
   signUp: {
@@ -101,7 +103,7 @@ export default function Signup() {
         inputAnswer
       };
       getResultant(creds);
-      navigate("/login");
+      navigate("/");
     } else {
       if (
         inputPassword !== inputCPassword ||
@@ -144,92 +146,100 @@ export default function Signup() {
     width: 500,
     margin: "20px auto"
   };
-
+  const Item = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    justifyContent: "space-around",
+    margin: "auto",
+    width: "100%"
+  }));
   return (
-    <div
-      className={classes.background}
-      style={{ display: "auto", flexGrow: 1 }}
-    >
+    <div>
       <div>{/* <Appbar></Appbar> */}</div>
 
       <div className={classes.container}>
-        <Paper elevation={24} style={styleForPaper}>
-          <Box className={classes.box}>
-            <Typography variant="h5">New User</Typography>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              className={classes.smallerBox}
-            >
-              <div className={classes.form}>
-                <TextField
-                  label="First Name"
-                  fullWidth
-                  required
-                  autoFocus
-                  name="firstName"
-                  error={fnameError}
-                />
-                <TextField
-                  label="Last Name"
-                  fullWidth
-                  required
-                  name="lastName"
-                  error={lnameError}
-                />
-                <TextField
-                  label="Email Address"
-                  fullWidth
-                  required
-                  name="email"
-                />
-                <TextField
-                  label="Password"
-                  fullWidth
-                  required
-                  type="password"
-                  name="password"
-                  error={passError}
-                />
-                <TextField
-                  label="Confirm Password"
-                  fullWidth
-                  required
-                  type="password"
-                  name="cpassword"
-                  error={passError}
-                />
-                <br />
-                <Typography variant="h5">Security Questions</Typography>
-                <br />
-                <Typography>What is your place of birth ?</Typography>
-                <TextField
-                  label="Security answer"
-                  fullWidth
-                  required
-                  type="text"
-                  name="answer"
-                />
-              </div>
-              <div className={classes.signUp}>
-                <Button type="submit" fullWidth variant="contained">
-                  Register
-                </Button>
-              </div>
-              <div>
-                <Link
-                  href=""
-                  variant="body2"
-                  onClick={() => {
-                    navigate("/authenticate/login");
-                  }}
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={10} sm={10}>
+            <Item>
+              <Box className={classes.box}>
+                <Typography variant="h5">New User</Typography>
+                <Box
+                  component="form"
+                  onSubmit={handleSubmit}
+                  className={classes.smallerBox}
                 >
-                  Sign in
-                </Link>
-              </div>
-            </Box>
-          </Box>
-        </Paper>
+                  <div className={classes.form}>
+                    <TextField
+                      label="First Name"
+                      fullWidth
+                      required
+                      autoFocus
+                      name="firstName"
+                      error={fnameError}
+                    />
+                    <TextField
+                      label="Last Name"
+                      fullWidth
+                      required
+                      name="lastName"
+                      error={lnameError}
+                    />
+                    <TextField
+                      label="Email Address"
+                      fullWidth
+                      required
+                      name="email"
+                    />
+                    <TextField
+                      label="Password"
+                      fullWidth
+                      required
+                      type="password"
+                      name="password"
+                      error={passError}
+                    />
+                    <TextField
+                      label="Confirm Password"
+                      fullWidth
+                      required
+                      type="password"
+                      name="cpassword"
+                      error={passError}
+                    />
+                    <br />
+                    <Typography variant="h5">Security Questions</Typography>
+                    <br />
+                    <Typography>What is your place of birth ?</Typography>
+                    <TextField
+                      label="Security answer"
+                      fullWidth
+                      required
+                      type="text"
+                      name="answer"
+                    />
+                  </div>
+                  <div className={classes.signUp}>
+                    <Button type="submit" fullWidth variant="contained">
+                      Register
+                    </Button>
+                  </div>
+                  <div>
+                    <Link
+                      href=""
+                      variant="body2"
+                      onClick={() => {
+                        navigate("/");
+                      }}
+                    >
+                      SIGN IN
+                    </Link>
+                  </div>
+                </Box>
+              </Box>
+            </Item>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

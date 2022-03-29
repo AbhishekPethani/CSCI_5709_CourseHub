@@ -10,7 +10,7 @@ import Appbar from "./Appbar";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import NavbarComp from './NavbarComp';
+import NavbarComp from "./NavbarComp";
 
 import { Navigate } from "react-router";
 
@@ -54,50 +54,51 @@ export default function Profile() {
   return (
     <div>
       <NavbarComp />
-    <div className={classes.background}>
-      {/* <Appbar></Appbar> */}
+      <div>
+        {/* <Appbar></Appbar> */}
 
-      <div className={classes.root}>
-        <Grid container spacing={2}>
-          {arrOfItems
-            .filter(user => {
-              return user;
-            })
-            .map(user => (
-              <Grid item xs={3}>
-                <Card
-                  sx={{
-                    margin: "30px",
-                    background: "#E1E7EB"
-                  }}
-                  variant="outlined"
-                >
-                  <CardMedia
-                    component="img"
-                    height="265"
-                    image={user.src}
-                    alt="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {user.value} % OFF
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      Apply this coupon code on your checkout to avail a dicount
-                      of {user.value}% on your total order value. T&C apply
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Typography variant="body2" color="text.primary">
-                      Coupon Code: {user.couponCode}
-                    </Typography>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-        </Grid>
+        <div className={classes.root}>
+          <Grid container spacing={2}>
+            {arrOfItems
+              .filter(user => {
+                return user;
+              })
+              .map(user => (
+                <Grid item xs={12} sm={6} md={4}>
+                  <Card
+                    sx={{
+                      margin: "30px",
+                      background: "#E1E7EB"
+                    }}
+                    variant="outlined"
+                  >
+                    <CardMedia
+                      component="img"
+                      height="265"
+                      image={user.src}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {user.value} % OFF
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Apply this coupon code on your checkout to avail a
+                        dicount of {user.value}% on your total order value. T&C
+                        apply
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Typography variant="body2" color="text.primary">
+                        Coupon Code: {user.couponCode}
+                      </Typography>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+          </Grid>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

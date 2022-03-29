@@ -6,8 +6,9 @@ import { Card, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Button, Link, TextField, Paper, Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import NavbarComp from '../NavbarComp';
-
+import NavbarComp from "../NavbarComp";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
 const useStyles = makeStyles(() => ({
   container: {
     maxWidth: 500,
@@ -69,7 +70,7 @@ export default function Profile() {
   };
   function deleteProfile() {
     return fetch(
-      "https://csci-5709-course-hub-backend.herokuapp.com//authenticate/delete",
+      "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/delete",
       {
         method: "DELETE",
         headers: {
@@ -91,32 +92,43 @@ export default function Profile() {
       navigate("/authenticate/login");
     }
   });
+  const Item = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    justifyContent: "space-around",
+    margin: "auto"
+  }));
   return (
     <div>
-      <NavbarComp />    
-    <div className={classes.background}>
-      {/* <Appbar></Appbar> */}
-      <div className={classes.container}>
-        <Paper elevation={24} style={styleForPaper}>
-          <Typography variant="h5" component="div">
-            WELCOME USER
-          </Typography>
-          <Typography variant="h5" component="div">
-            User Email: {currentUser}
-          </Typography>
-          <div className={classes.delete}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              onClick={handleSubmit}
-            >
-              Delete User
-            </Button>
-          </div>
-        </Paper>
+      <NavbarComp />
+      <div>
+        {/* <Appbar></Appbar> */}
+        <div className={classes.container}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={10} sm={10}>
+              <Item>
+                <Typography variant="h5" component="div">
+                  WELCOME USER
+                </Typography>
+                <Typography variant="h5" component="div">
+                  User Email: {currentUser}
+                </Typography>
+                <div className={classes.delete}>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    onClick={handleSubmit}
+                  >
+                    Delete User
+                  </Button>
+                </div>
+              </Item>
+            </Grid>
+          </Grid>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
