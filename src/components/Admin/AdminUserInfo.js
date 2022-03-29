@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import "../../assets/css/AdminUserInfo.css";
 
 function UserInfo() {
