@@ -1,7 +1,7 @@
 # Assignment 3 (Frontend)
 
 * *Date Created*: 26 MAR 2022
-* *Last Modification Date*: 27 MAR 2022
+* *Last Modification Date*: 28 MAR 2022
 * *Deployed Web Application URL*: <>
 * *Gitlab URL*: <https://git.cs.dal.ca/abakshi/csci5709-group07>
 
@@ -50,20 +50,20 @@ step-6: Open any browser and type localhost:3000
 ### Feature (CourseReview)
 ```
 In this project, I have worked on Course review feature. A task of this features are as follow:
-	1. Add rating
-	2. Add Review
-	3. Delete Review
+1. Add rating
+2. Add Review
+3. Delete Review
 ```
 
 ### Files (CourseReview)
 ```
 The files which i have created as a part of this features are as follow:
-	1. NavbarComp.js    		(available at: src/components/)
-	2. ReviewSection.js 		(available at: src/components/CourseReview/)
-	3. Review.js        		(available at: src/components/CourseReview/)
-	4. ReviewModal.js   		(available at: src/components/CourseReview/)
-	5. DeleteReviewDialog.js	(available at: src/components/CourseReview/)
-	6. reviews.js				(available at: src/services/)	
+1. NavbarComp.js    		(available at: src/components/)
+2. ReviewSection.js 		(available at: src/components/CourseReview/)
+3. Review.js        		(available at: src/components/CourseReview/)
+4. ReviewModal.js   		(available at: src/components/CourseReview/)
+5. DeleteReviewDialog.js	(available at: src/components/CourseReview/)
+6. reviews.js        		(available at: src/services/)	
 ```
 
 ### Feature Test (CourseReview)
