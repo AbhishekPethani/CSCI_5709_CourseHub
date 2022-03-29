@@ -37,11 +37,6 @@ const useStyles = makeStyles(() => ({
     display: "grid",
     placeContent: "space-between",
     gridAutoFlow: "column"
-  },
-  background: {
-    background: "linear-gradient(#e66465, #9198e5)",
-    height: "1400px",
-    display: "auto"
   }
 }));
 
@@ -132,3 +127,5 @@ export default function Profile() {
     </div>
   );
 }
+// citation for the paper and the paper styling is -https://www.youtube.com/watch?v=L2RnP5vhbdg&t=640s
+// for paper style-https://mui.com/components/grid/

@@ -40,11 +40,6 @@ const useStyles = makeStyles(() => ({
     gridAutoFlow: "column",
     background: "lightgrey",
     alignItems: "center"
-  },
-  background: {
-    background: "linear-gradient(#e66465, #9198e5)",
-    width: "100%",
-    height: "1400px"
   }
 }));
 
@@ -217,3 +212,5 @@ export default function ForgotPassword() {
     </div>
   );
 }
+// citation for the paper and the paper styling is -https://www.youtube.com/watch?v=L2RnP5vhbdg&t=640s
+// for paper style-https://mui.com/components/grid/
