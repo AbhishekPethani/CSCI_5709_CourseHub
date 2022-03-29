@@ -55,7 +55,7 @@ const Home = () => {
     setSelectedCourses(filteredCourses);
     if (filterVal === 'all') {
       setSelectedCourses(allcourses);
-      //
+      // comment
     }
   }
 
