@@ -2,7 +2,7 @@
  Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
 ========================================================= */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ const useStyles = makeStyles(() => ({
   },
   background: {
     background: "linear-gradient(#e66465, #9198e5)",
-    height: "1800px"
+    height: "1000px"
   }
 }));
 
@@ -69,6 +69,10 @@ export default function Login() {
   let password = "";
   const classes = useStyles();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  });
 
   const handleSubmit = event => {
     event.preventDefault();
