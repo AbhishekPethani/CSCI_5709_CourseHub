@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
+========================================================= */
 import { ButtonBase, Card, CardActions, CardContent } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
