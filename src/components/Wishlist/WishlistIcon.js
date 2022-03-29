@@ -2,7 +2,7 @@
  * @Author  Jay Bipinchandra Patel
  * @Banner  B00886902
  * @NetID   jy439129
- * @EmailId jy43p129@dal.ca
+ * @EmailId jy439129@dal.ca
  */
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { blue } from '@mui/material/colors';
