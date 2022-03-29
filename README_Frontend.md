@@ -2,7 +2,7 @@
 
 * *Date Created*: 26 MAR 2022
 * *Last Modification Date*: 28 MAR 2022
-* *Deployed Web Application URL*: <>
+* *Deployed Web Application URL*: <https://course-hub.herokuapp.com/>
 * *Gitlab URL*: <https://git.cs.dal.ca/abakshi/csci5709-group07>
 
 ## Authors
