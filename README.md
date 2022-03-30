@@ -89,3 +89,15 @@ step-6: Open any browser and type localhost:3000
 ```
 
 
+### Feature (Course Review)
+#### Author - Abhishek Pareshbhai Pethani
+```
+1. NavbarComp.js    		(available at: src/components/)
+2. ReviewSection.js 		(available at: src/components/CourseReview/)
+3. Review.js        		(available at: src/components/CourseReview/)
+4. ReviewModal.js   		(available at: src/components/CourseReview/)
+5. DeleteReviewDialog.js	(available at: src/components/CourseReview/)
+6. reviews.js        		(available at: src/services/)
+```
+
+
