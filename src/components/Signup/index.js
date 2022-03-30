@@ -1,7 +1,7 @@
 /*=======================================================
  Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
 ========================================================= */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -16,6 +16,8 @@ import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 import Appbar from "../AppBar/AppBar";
 import App from "../../App";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
 
 /**
  * @Ridampreet
@@ -49,7 +51,7 @@ const useStyles = makeStyles(() => ({
   },
   form: {
     display: "grid",
-    width: 400,
+    width: "100%",
     gridRowGap: 20
   },
   signUp: {
@@ -57,15 +59,53 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function Signup() {
-  // let users = JSON.parse(localStorage.getItem("users")) ?? [];
+function checkUser() {
+  return fetch(
+    "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/users",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  )
+    .then(response => response.json())
+    .then(data => {
+      if (data.users.length > 0) {
+        // console.log(data.users);
+        return data.users;
+      }
+    });
+}
 
+export default function Signup() {
+  const [arrOfIUsers, setarrOffUsers] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/users",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then(response => response.json())
+      .then(data => {
+        if (data.users.length > 0) {
+          setarrOffUsers(data.users);
+        }
+      });
+  }, []);
+  // let users = JSON.parse(localStorage.getItem("users")) ?? [];
+  // console.log(userArrayFromAPI);
   const [passError, setpassError] = useState(false);
   const [fnameError, setfnameError] = useState(false);
   const [lnameError, setlnameError] = useState(false);
+  const [emailEror, setEmailError] = useState(false);
   const classes = useStyles();
   const navigate = useNavigate();
-
+  console.log(arrOfIUsers);
   const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -75,20 +115,27 @@ export default function Signup() {
     const inputLName = data.get("lastName");
     const inputCPassword = data.get("cpassword");
     const inputAnswer = data.get("answer");
-
+    var registeredOrNot = false;
     const currentUser = {
       username: inputEmail,
       password: inputPassword,
       answer: inputAnswer
     };
-
+    for (var i = 0; i < arrOfIUsers.length; i++) {
+      if (arrOfIUsers[i].email === inputEmail) {
+        registeredOrNot = true;
+        console.log(arrOfIUsers[i].email, inputEmail);
+        break;
+      }
+    }
     if (
       !/[^a-zA-Z]/.test(inputName) &&
       !/[^a-zA-Z]/.test(inputLName) &&
       inputPassword.length >= 8 &&
       inputCPassword.length >= 8 &&
       inputCPassword === inputPassword &&
-      inputEmail.includes("@")
+      inputEmail.includes("@") &&
+      registeredOrNot == false
     ) {
       // users = [...users, currentUser];
       // localStorage.setItem("users", JSON.stringify(users));
@@ -101,7 +148,7 @@ export default function Signup() {
         inputAnswer
       };
       getResultant(creds);
-      navigate("/login");
+      navigate("/");
     } else {
       if (
         inputPassword !== inputCPassword ||
@@ -118,6 +165,15 @@ export default function Signup() {
       if (/[^a-zA-Z]/.test(inputLName)) {
         alert("Error with the Last name");
         setlnameError(true);
+      }
+
+      if (!inputEmail.includes("@") || !inputEmail.includes(".com")) {
+        alert("Please provide a valid email address");
+        setEmailError(true);
+      }
+      if (registeredOrNot == true) {
+        alert("User email already registered");
+        setEmailError(true);
       }
     }
   };
@@ -138,98 +194,102 @@ export default function Signup() {
         return data;
       });
   }
-  const styleForPaper = {
-    padding: 20,
-    height: "90vh",
-    width: 500,
-    margin: "20px auto"
-  };
 
+  const Item = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    justifyContent: "space-around",
+    margin: "auto",
+    width: "100%"
+  }));
   return (
-    <div
-      className={classes.background}
-      style={{ display: "auto", flexGrow: 1 }}
-    >
+    <div>
       <div>{/* <Appbar></Appbar> */}</div>
 
       <div className={classes.container}>
-        <Paper elevation={24} style={styleForPaper}>
-          <Box className={classes.box}>
-            <Typography variant="h5">New User</Typography>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              className={classes.smallerBox}
-            >
-              <div className={classes.form}>
-                <TextField
-                  label="First Name"
-                  fullWidth
-                  required
-                  autoFocus
-                  name="firstName"
-                  error={fnameError}
-                />
-                <TextField
-                  label="Last Name"
-                  fullWidth
-                  required
-                  name="lastName"
-                  error={lnameError}
-                />
-                <TextField
-                  label="Email Address"
-                  fullWidth
-                  required
-                  name="email"
-                />
-                <TextField
-                  label="Password"
-                  fullWidth
-                  required
-                  type="password"
-                  name="password"
-                  error={passError}
-                />
-                <TextField
-                  label="Confirm Password"
-                  fullWidth
-                  required
-                  type="password"
-                  name="cpassword"
-                  error={passError}
-                />
-                <br />
-                <Typography variant="h5">Security Questions</Typography>
-                <br />
-                <Typography>What is your place of birth ?</Typography>
-                <TextField
-                  label="Security answer"
-                  fullWidth
-                  required
-                  type="text"
-                  name="answer"
-                />
-              </div>
-              <div className={classes.signUp}>
-                <Button type="submit" fullWidth variant="contained">
-                  Register
-                </Button>
-              </div>
-              <div>
-                <Link
-                  href=""
-                  variant="body2"
-                  onClick={() => {
-                    navigate("/authenticate/login");
-                  }}
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={10} sm={10}>
+            <Item>
+              <Box className={classes.box}>
+                <Typography variant="h5">New User</Typography>
+                <Box
+                  component="form"
+                  onSubmit={handleSubmit}
+                  className={classes.smallerBox}
                 >
-                  Sign in
-                </Link>
-              </div>
-            </Box>
-          </Box>
-        </Paper>
+                  <div className={classes.form}>
+                    <TextField
+                      label="First Name"
+                      fullWidth
+                      required
+                      autoFocus
+                      name="firstName"
+                      error={fnameError}
+                    />
+                    <TextField
+                      label="Last Name"
+                      fullWidth
+                      required
+                      name="lastName"
+                      error={lnameError}
+                    />
+                    <TextField
+                      label="Email Address"
+                      fullWidth
+                      required
+                      name="email"
+                      error={emailEror}
+                    />
+                    <TextField
+                      label="Password"
+                      fullWidth
+                      required
+                      type="password"
+                      name="password"
+                      error={passError}
+                    />
+                    <TextField
+                      label="Confirm Password"
+                      fullWidth
+                      required
+                      type="password"
+                      name="cpassword"
+                      error={passError}
+                    />
+                    <br />
+                    <Typography variant="h5">Security Questions</Typography>
+                    <br />
+                    <Typography>What is your place of birth ?</Typography>
+                    <TextField
+                      label="Security answer"
+                      fullWidth
+                      required
+                      type="text"
+                      name="answer"
+                    />
+                  </div>
+                  <div className={classes.signUp}>
+                    <Button type="submit" fullWidth variant="contained">
+                      Register
+                    </Button>
+                  </div>
+                  <div>
+                    <Link
+                      href=""
+                      variant="body2"
+                      onClick={() => {
+                        navigate("/");
+                      }}
+                    >
+                      SIGN IN
+                    </Link>
+                  </div>
+                </Box>
+              </Box>
+            </Item>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Appbar from "../AppBar/AppBar";
 import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
 const useStyles = makeStyles(() => ({
   container: {
     maxWidth: 500,
@@ -31,7 +32,7 @@ const useStyles = makeStyles(() => ({
     marginLeft: "37px"
   },
   signIn: {
-    margin: "20px 10px 20px 40px"
+    margin: "20px 0px 20px 0px"
   },
   forgotPassword: {
     display: "grid",
@@ -39,11 +40,6 @@ const useStyles = makeStyles(() => ({
     gridAutoFlow: "column",
     background: "lightgrey",
     alignItems: "center"
-  },
-  background: {
-    background: "linear-gradient(#e66465, #9198e5)",
-    width: "100%",
-    height: "1400px"
   }
 }));
 
@@ -129,73 +125,92 @@ export default function ForgotPassword() {
     marginTop: "100px",
     display: "flex"
   };
+  const Item = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.primary,
+    justifyContent: "space-around",
+
+    marginLeft: "20%",
+    marginRight: "20%",
+    width: "60%",
+    marginTop: "10%"
+  }));
   return (
-    <div className={classes.background}>
+    <div>
       {/* <Appbar></Appbar> */}
-      <div className={classes.container}>
-        <Grid item xs={12} sm={6}>
-          <Paper elevation={24} style={styleForPaper} xs={4}>
-            <Box className={classes.box}>
-              <Typography component="h3" variant="h5">
-                FORGOT PASSWORD
-              </Typography>
-              <Box
-                component="form"
-                onSubmit={handleSubmit}
-                className={classes.smallerBox}
-              >
-                <div className={classes.form}>
-                  <TextField
-                    autoFocus
-                    required
-                    fullWidth
-                    name="email"
-                    label="Email Address"
-                  />
-                  <Typography component="h1" variant="h5">
-                    Enter the answer to the Security Question
-                  </Typography>
-                  <TextField
-                    required
-                    fullWidth
-                    name="answer"
-                    label="What is your place of birth"
-                    type="text"
-                  />
-                  <TextField
-                    label="Password"
-                    fullWidth
-                    required
-                    type="password"
-                    name="password"
-                  />
-                  <TextField
-                    label="Confirm Password"
-                    fullWidth
-                    required
-                    type="password"
-                    name="cpassword"
-                  />
-                </div>
-                <div className={classes.signIn}>
-                  <Button type="submit" fullWidth variant="contained">
-                    Reset Password
-                  </Button>
-                </div>
-                <div className={classes.signIn} fullWidth variant="contained">
-                  <Button
-                    onClick={() => {
-                      navigate("/authenticate/register");
-                    }}
-                  >
-                    Sign Up
-                  </Button>
-                </div>
+      <div>
+        <Grid>
+          <Grid item xs={12} md={10} sm={10}>
+            <Item>
+              <Box className={classes.box}>
+                <Typography component="h3" variant="h5">
+                  FORGOT PASSWORD
+                </Typography>
+                <br />
+                <Box component="form" onSubmit={handleSubmit}>
+                  <div>
+                    <TextField
+                      autoFocus
+                      required
+                      fullWidth
+                      name="email"
+                      label="Email Address"
+                    />
+                    <br />
+                    <br />
+                    <Typography component="h1" variant="h5">
+                      Enter the answer to the Security Question
+                    </Typography>
+                    <br />
+                    <TextField
+                      required
+                      fullWidth
+                      name="answer"
+                      label="What is your place of birth"
+                      type="text"
+                    />
+                    <br />
+                    <br />
+                    <TextField
+                      label="Password"
+                      fullWidth
+                      required
+                      type="password"
+                      name="password"
+                    />
+                    <br />
+                    <br />
+                    <TextField
+                      label="Confirm Password"
+                      fullWidth
+                      required
+                      type="password"
+                      name="cpassword"
+                    />
+                  </div>
+                  <div className={classes.signIn}>
+                    <Button type="submit" fullWidth variant="contained">
+                      Reset Password
+                    </Button>
+                  </div>
+                  <div className={classes.signIn} fullWidth variant="contained">
+                    <Button
+                      onClick={() => {
+                        navigate("/signup");
+                      }}
+                    >
+                      Sign Up
+                    </Button>
+                  </div>
+                </Box>
               </Box>
-            </Box>
-          </Paper>
+            </Item>
+          </Grid>
         </Grid>
       </div>
     </div>
   );
 }
+// citation for the paper and the paper styling is -https://www.youtube.com/watch?v=L2RnP5vhbdg&t=640s
+// for paper style-https://mui.com/components/grid/
