@@ -72,14 +72,10 @@ const Home = () => {
               {uniqueCourses.map((course) => {
                 return <FormControlLabel value={course} control={<Radio />} label={course} />
               })}
-              {/* <FormControlLabel value="webdev" control={<Radio />} label="Web Development" />
-                <FormControlLabel value="backend" control={<Radio />} label="Backend" />
-                <FormControlLabel value="database" control={<Radio />} label="Database" /> */}
             </RadioGroup>
           </FormControl>
         </div>
         <div>
-          {/* <Filters SetFilterValue={filterCourses} /> */}
           <Grid
             container
             spacing={3}
