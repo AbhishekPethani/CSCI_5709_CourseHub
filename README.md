@@ -54,8 +54,6 @@ step-6: Open any browser and type localhost:3000
 ### Feature (Course Catalogue)
 #### Author - Aditya Bakshi
 ```
-### Files
-```
 1. NavbarComp.js    		(available at: src/components/)
 2. CourseCard.js    		(available at: src/components/)
 3. CoursePage.js        	(available at: src/pages/)
