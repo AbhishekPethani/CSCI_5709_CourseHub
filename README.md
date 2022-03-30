@@ -116,3 +116,12 @@ step-6: Open any browser and type localhost:3000
 1. coupons.js    		(available at: src/components/)
 ```
 
+### Feature (Wishlist)
+#### Author - Jay Bipinchandra Patel
+```
+1. Wishlist.js          (available at: src\components\Wishlist)
+2. WishlistIcon.js      (available at: src\components\Wishlist)
+3. wishlist.css         (available at: src\assets\css)
+4. WishlistBtn.css      (available at: src\assets\css)
+5. WishlistIcon.css     (available at: src\assets\css)
+```
