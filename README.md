@@ -61,3 +61,31 @@ step-6: Open any browser and type localhost:3000
 5. courses.js               (available at: src/services/)
 ```
 
+
+### Feature (User Management)
+#### Author - Sourav Malik
+```
+### Files
+- AdminDashboard.js
+- AdminHeader.js
+- AdminModel.js
+- AdminTabs.js
+- AdminToaster.js
+- AdminUserInfo.js
+- AdminValidation.js
+- AdminDeleteModel.js
+- AdminEditUserModel.js
+- AdminUser.js
+- AdminHttpClient.js
+- AdminEditUserModel.css
+- AdminHeader.css
+- AdminModel.css
+- AdminTabs.css
+- AdminToaster.css
+- AdminUser.css
+- AdminUserInfo.css
+- AdminValidation.css
+- App.css
+```
+
+
