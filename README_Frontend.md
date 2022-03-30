@@ -45,6 +45,13 @@ step-6: Open any browser and type localhost:3000
 * [Axios](https://axios-http.com/docs/intro) - This library is used to make http request(Get, Post, Delete, Put) from web browser to our Node.js backend app.
 **
 
+## Steps taken for Code integration
+
+- Every team member developed their respective feature in their branch
+- Before pushing the code to main branch from feature branch, we ensured to pull the latest code from main branch
+- All member communicated with each other about changes performed in main branch when team member push the code to their respective branch and then merge it to the main branch 
+- In order to reuse the existing component in the project, we created a components directory in src/ 
+  
 ## My Work
 
 ### Feature (CourseReview)
