@@ -106,7 +106,7 @@ step-6: Open any browser and type localhost:3000
 ```
 1. Index.js    		(available at: src/components/ForgotPassword/)
 2. Index.js 		(available at: src/components/Login/)
-3. Index.js        		(available at: src/components/Sign out/)
+3. Index.js        	(available at: src/components/Sign out/)
 4. Index.js   		(available at: src/components/Signup/)
 ```
 
