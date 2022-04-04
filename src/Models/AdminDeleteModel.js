@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import { Modal } from "../components/Admin/AdminModel";
 
 export const DeleteModal = ({ handleClose, show }) => {

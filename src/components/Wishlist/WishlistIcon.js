@@ -1,7 +1,12 @@
+/**
+ * @Author  Jay Bipinchandra Patel
+ * @Banner  B00886902
+ * @NetID   jy439129
+ * @EmailId jy439129@dal.ca
+ */
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { blue } from '@mui/material/colors';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.css'
 import { useEffect, useState } from 'react';
 import './../../assets/css/WishlistIcon.css'
 
@@ -15,9 +20,9 @@ export default function WishlistIcon(props) {
     const [isWishlisted, setIsWishlisted] = useState(false);
 
     useEffect(() => {
-        let checkUrl = wishlistEndpoint + "check" + "/" + props.userId + "/" + props.courseId; 
+        let checkUrl = wishlistEndpoint + "check" + "/" + props.userId + "/" + props.courseId;
         axios.get(checkUrl).then((res) => {
-            if(res.data.isWishlisted) {
+            if (res.data.isWishlisted) {
                 setIconColorCode(BLUE_COLOR_CODE);
                 setIsWishlisted(true);
             } else {
@@ -28,12 +33,12 @@ export default function WishlistIcon(props) {
     }, []);
 
     async function handleOnClick() {
-        if(isWishlisted) {
+        if (isWishlisted) {
             // remove
             let removeFromWishlistUrl = wishlistEndpoint + props.userId + "/" + props.courseId;
             console.log(removeFromWishlistUrl);
             axios.delete(removeFromWishlistUrl).then((res) => {
-                if(res.data.success) {
+                if (res.data.success) {
                     setIconColorCode(SILVER_COLOR_CODE);
                     setIsWishlisted(false);
                 }
@@ -46,7 +51,7 @@ export default function WishlistIcon(props) {
                 'Content-Type': 'text/plain'
             };
             axios.post(addToWishlistUrl, props, headers).then((res) => {
-                if(res.data.success) {
+                if (res.data.success) {
                     setIconColorCode(BLUE_COLOR_CODE);
                     setIsWishlisted(true);
                 }
@@ -55,16 +60,16 @@ export default function WishlistIcon(props) {
     }
 
     useEffect(() => {
-        if(changeId > 0) {
+        if (changeId > 0) {
             handleOnClick();
         }
     }, [changeId]);
 
     return (
-        <button className='favorite-btn' onClick={() => {setChangeId(changeId + 1);}}>
+        <button className='favorite-btn' onClick={() => { setChangeId(changeId + 1); }}>
             <div className='favorite-icon'>
-                <FavoriteIcon 
-                    sx={{ fontSize: 35, color: iconColorCode}} >
+                <FavoriteIcon
+                    sx={{ fontSize: 35, color: iconColorCode }} >
                 </FavoriteIcon>
             </div>
         </button>

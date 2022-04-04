@@ -2,11 +2,13 @@
  Author: [Ridampreet Singh Jaggi] [rd285404@dal.ca]
 ========================================================= */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 import Appbar from "../AppBar/AppBar";
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
 
 /**
  * @Ridampreet
@@ -46,10 +48,6 @@ const useStyles = makeStyles(() => ({
     placeContent: "space-between",
     gridAutoFlow: "column",
     marginLeft: "30px"
-  },
-  background: {
-    background: "linear-gradient(#e66465, #9198e5)",
-    height: "1800px"
   }
 }));
 
@@ -70,14 +68,20 @@ export default function Login() {
   const classes = useStyles();
   const navigate = useNavigate();
 
+  useEffect(() => {});
+
   const handleSubmit = event => {
     event.preventDefault();
-    // const users = JSON.parse(localStorage.getItem("users"));
+
     const data = new FormData(event.currentTarget);
     email = data.get("email");
     password = data.get("password");
-    const creds = { email };
-    read();
+    if (email == undefined || password == undefined) {
+      alert("Credentials not valid");
+    } else {
+      const creds = { email };
+      read();
+    }
   };
 
   async function read() {
@@ -85,12 +89,11 @@ export default function Login() {
     console.log(localStorage.getItem("isAdmin") === "true" && ch);
     if (ch == true) {
       if (email === "sourav@gmail.com") {
-        window.open('/admin', '_self');
+        window.open("/admin", "_self");
       } else {
         navigate("/home");
       }
-    }
-    else {
+    } else {
       alert("login details do not match");
     }
   }
@@ -98,7 +101,7 @@ export default function Login() {
   function checkRegistration() {
     return fetch(
       "https://csci-5709-course-hub-backend.herokuapp.com/authenticate/" +
-      email,
+        email,
       {
         method: "GET",
         headers: {
@@ -108,8 +111,8 @@ export default function Login() {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data.users[0]);
         if (
+          data.users[0] != undefined &&
           email === data.users[0].email &&
           password === data.users[0].password
         ) {
@@ -125,68 +128,86 @@ export default function Login() {
         }
       });
   }
-
+  const Item = styled(Paper)(({ theme }) => ({
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    justifyContent: "space-around",
+    margin: "auto"
+  }));
   return (
-    <div className={classes.background}>
+    <div>
       {/* <Appbar></Appbar> */}
       <div className={classes.container}>
-        <Paper elevation={24} style={styleForPaper}>
-          <Box className={classes.box}>
-            <Typography component="h1" variant="h5">
-              SIGN IN
-            </Typography>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              className={classes.smallerBox}
-            >
-              <div className={classes.form}>
-                <TextField
-                  autoFocus
-                  required
-                  fullWidth
-                  name="email"
-                  label="Email Address"
-                />
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                />
-              </div>
-              <div className={classes.signIn}>
-                <Button type="submit" fullWidth variant="contained">
-                  Sign In
-                </Button>
-              </div>
-              <div className={classes.forgotPassword}>
-                <Link
-                  href=""
-                  variant="body2"
-                  onClick={() => {
-                    navigate("/authenticate/forgotPassword");
-                  }}
+        {/* <Paper elevation={24} style={styleForPaper}> */}
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={10} sm={10}>
+            <Item>
+              <Box>
+                <Typography component="h1" variant="h5">
+                  SIGN IN
+                </Typography>
+                <Box
+                  component="form"
+                  onSubmit={handleSubmit}
+                  className={classes.smallerBox}
                 >
-                  Forgot password?
-                </Link>
-                <Link
-                  href=""
-                  style={{ marginRight: "15px" }}
-                  variant="body2"
-                  onClick={() => {
-                    navigate("/authenticate/register");
-                  }}
-                >
-                  {"Sign Up"}
-                </Link>
-              </div>
-            </Box>
-          </Box>
-        </Paper>
+                  <div>
+                    <TextField
+                      autoFocus
+                      required
+                      fullWidth
+                      name="email"
+                      label="Email Address"
+                    />
+                    <br></br>
+                    <br></br>
+                    <TextField
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                    />
+                  </div>
+                  <br></br>
+                  <div>
+                    <Button type="submit" fullWidth variant="contained">
+                      Sign In
+                    </Button>
+                  </div>
+                  <br></br>
+                  <div className={classes.forgotPassword}>
+                    <Link
+                      href=""
+                      variant="body2"
+                      onClick={() => {
+                        navigate("/authenticate/forgotPassword");
+                      }}
+                    >
+                      FORGOT PASSWORD?
+                    </Link>
+                    <Link
+                      href=""
+                      style={{ marginRight: "15px" }}
+                      variant="body2"
+                      onClick={() => {
+                        navigate("/signup");
+                      }}
+                    >
+                      SIGN UP
+                    </Link>
+                  </div>
+                </Box>
+              </Box>
+            </Item>
+          </Grid>
+
+          {/* </Paper> */}
+        </Grid>
       </div>
     </div>
   );
 }
 // citation for the paper and the paper styling is -https://www.youtube.com/watch?v=L2RnP5vhbdg&t=640s
+// for paper style-https://mui.com/components/grid/

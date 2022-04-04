@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./assets/css/App.css";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Signup from "./components/Signup";
@@ -7,14 +7,14 @@ import ForgotPassword from "./components/ForgotPassword";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import Home from "./pages/Home";
 import CoursePage from "./pages/CoursePage";
-import Coupons from "./components/coupons"
+import Coupons from "./components/coupons";
 import Wishlist from "./components/Wishlist/Wishlist";
 import Logout from "./components/Sign out";
 
 function App() {
   return (
     <div className="App">
-      
+
 
       <BrowserRouter>
         <Routes>

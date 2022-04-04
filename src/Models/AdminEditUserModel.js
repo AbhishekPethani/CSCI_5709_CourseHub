@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import { useState, useEffect } from "react";
 import { Modal } from "../components/Admin/AdminModel";
 import { Validation } from "../components/Admin/AdminValidation";

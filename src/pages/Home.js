@@ -1,5 +1,5 @@
 /*=======================================================
- Author: [Aditya Bakshi] (aditya.bakshi@dal.ca)
+ Author: [Aditya Bakshi] (aditya.bakshi@dal.ca )
 ========================================================= */
 
 import React from 'react';
@@ -21,28 +21,32 @@ const useStyles = makeStyles({
     paddingLeft: '25px',
     paddingRight: '25px',
     paddingTop: '50px',
+  },
+  center: {
+    paddingLeft: '25px',
+    paddingTop: '15px',
   }
 });
 
 const Home = () => {
   const [allcourses, setCourses] = useState([]);
-    const [selectedCourses, setSelectedCourses] = useState([]);
-    const [uniqueCourses, setUniqueCourses] = useState([]);
-    const [value, setValue] = React.useState('all');
-    let currentCourse = '';
+  const [selectedCourses, setSelectedCourses] = useState([]);
+  const [uniqueCourses, setUniqueCourses] = useState([]);
+  const [value, setValue] = React.useState('all');
+  let currentCourse = '';
   useEffect(() => {
     getCourses().then((response) => {
-      setCourses(response.data.courses); 
-      for(let i =0; i < response.data.courses.length; i++){
+      setCourses(response.data.courses);
+      for (let i = 0; i < response.data.courses.length; i++) {
         currentCourse = response.data.courses[i].courseCategory;
-        if(uniqueCourses.indexOf(currentCourse) == -1){
+        if (uniqueCourses.indexOf(currentCourse) == -1) {
           uniqueCourses.push(currentCourse);
         }
       }
       setUniqueCourses(uniqueCourses);
       setSelectedCourses(response.data.courses);
     });
-}, []);
+  }, []);
 
   const filterCourses = (event) => {
     setValue(event.target.value);
@@ -58,33 +62,31 @@ const Home = () => {
 
   return (
     <>
-    <NavbarComp />
-    <div>
-       <FormControl component="fieldset">
+      <NavbarComp />
+      <div>
+        <div className={classes.center}>
+          <FormControl component="fieldset">
             <FormLabel component="legend" required={true} >Category</FormLabel>
             <RadioGroup aria-label="category" name="category" value={value} onChange={filterCourses} row>
-                <FormControlLabel value="all" control={<Radio />} label="All" />
-                {uniqueCourses.map((course) => {
-            return <FormControlLabel value={course} control={<Radio />} label={course} />
-          })}
-                {/* <FormControlLabel value="webdev" control={<Radio />} label="Web Development" />
-                <FormControlLabel value="backend" control={<Radio />} label="Backend" />
-                <FormControlLabel value="database" control={<Radio />} label="Database" /> */}
+              <FormControlLabel value="all" control={<Radio />} label="All" />
+              {uniqueCourses.map((course) => {
+                return <FormControlLabel value={course} control={<Radio />} label={course} />
+              })}
             </RadioGroup>
-        </FormControl>
-      <div>
-        {/* <Filters SetFilterValue={filterCourses} /> */}
-        <Grid
-          container
-          spacing={3}
-          className={classes.gridcontainer}>
-          {selectedCourses.map((course) => {
-            return <Grid item xs={12} sm={6} md={4}>
-              <div><Card courseName={course.courseName} courseDescription={course.courseDescription} courseImage={course.courseImage} /></div></Grid>
-          })}
-        </Grid>
+          </FormControl>
+        </div>
+        <div>
+          <Grid
+            container
+            spacing={3}
+            className={classes.gridcontainer}>
+            {selectedCourses.map((course) => {
+              return <Grid item xs={12} sm={6} md={4}>
+                <div><Card courseName={course.courseName} courseDescription={course.courseDescription} courseImage={course.courseImage} /></div></Grid>
+            })}
+          </Grid>
+        </div>
       </div>
-    </div>
     </>
   );
 }
