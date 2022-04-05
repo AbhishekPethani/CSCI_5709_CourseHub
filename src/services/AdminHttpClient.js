@@ -8,8 +8,8 @@ const HttpClient = {
   get: (resourceUri) => {
     return axios.get(`${baseUri}${resourceUri}`);
   },
-  post: (resourceUri, payload) => {
-    return axios.post(`${baseUri}${resourceUri}`, payload);
+  post: (resourceUri, payload, config = {}) => {
+    return axios.post(`${baseUri}${resourceUri}`, payload, config);
   },
   put: (resourceUri, payload) => {
     return axios.put(`${baseUri}${resourceUri}`, payload);

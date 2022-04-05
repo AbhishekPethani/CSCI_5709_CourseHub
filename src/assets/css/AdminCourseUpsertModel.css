@@ -12,6 +12,7 @@
   justify-content: space-between;
   flex-direction: column;
   padding-bottom: 15px;
+  position: relative;
 }
 
 .group label {
