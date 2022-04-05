@@ -63,10 +63,7 @@ const OrderHistory = ( {email}) => {
                         </TableHead>
                         <TableBody>
                         {orderHistory.map((order) => (
-                            <TableRow
-                            key={order._id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
+                            <TableRow key={order._id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                             <TableCell component="th" scope="row"> {order._id} </TableCell>
                             <TableCell >{order.courseName}</TableCell>
                             <TableCell >{order.date.split("T")[0]}</TableCell>
