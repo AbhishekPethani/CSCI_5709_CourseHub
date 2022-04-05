@@ -74,7 +74,7 @@ const NavbarComp = () => {
                     {" "}
                     Wishlist{" "}
                   </Nav.Link>
-                  <Nav.Link style={{ color: "white" }} as={Link} to={"/"} disabled="true">
+                  <Nav.Link style={{ color: "white" }} as={Link} to={"/cart"}>
                     {" "}
                     Cart{" "}
                   </Nav.Link>

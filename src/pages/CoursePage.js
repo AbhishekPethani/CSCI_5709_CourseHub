@@ -19,6 +19,7 @@ import { autocompleteClasses } from '@mui/material';
 import ReviewSection from "../components/CourseReview/ReviewSection";
 import NavbarComp from '../components/NavbarComp';
 import WishlistIcon from "../components/Wishlist/WishlistIcon";
+import { addToCart } from '../services/cart';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,13 +50,12 @@ function CoursePage() {
     const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
     const [wishlist, setWishlist] = useState('');
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
     const [course, setCourse] = useState([]);
     const params = useParams();
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-      };
+    // const [body, setBody] = useState({
+    //   userId: "",
+    //   courseName: ""
+    // });
 
     useEffect(() => {
         getCourseByName(params.courseName).then((response) => {
@@ -79,6 +79,18 @@ function CoursePage() {
         purchasedBy = course[0].purchasedBy;
         courseDetails = course[0].courseDetails;
     }
+
+    const handleClick = (event) => {
+      // setBody(userId, courseName);
+      const body = {
+        userId: userId,
+        courseName: courseName,
+        courseImage: courseImage,
+        coursePrice: coursePrice
+      }
+      event.preventDefault();
+      addToCart(body);
+  };
 
     return (
       <>
@@ -115,7 +127,7 @@ function CoursePage() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" disabled="true">
+        <Button size="small" color="primary" onClick={handleClick}>
           Add to Cart
         </Button>
       </CardActions>

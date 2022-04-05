@@ -50,7 +50,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
     .catch((error) => {
         console.log(error)
     })
-  })
+  }, [])
   
   // useEffect hook to delete review on isYes state changes
   useEffect(() => {
