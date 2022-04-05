@@ -13,7 +13,7 @@ import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
     tableContainer: {
         borderRadius: 15,
-        margin: '50px',
+        margin: '10px',
         maxWidth: 950,
     },
     tableHeaderCell: {
@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.getContrastText(theme.palette.primary.dark)
     },
 }))
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+function createData(_id, courseName, date, amount, status) {
+    return { _id, courseName, date, amount, status };
   }
   
   const rows = [
@@ -37,17 +37,17 @@ function createData(name, calories, fat, carbs, protein) {
 const OrderHistory = () => {
     const classes = useStyles();
 
-    const [orderHistory, setOrderHistory] = useState([]);
+    const [orderHistory, setOrderHistory] = useState(rows);
 
     // useEffect hook to get all the past orders for current logged in user from the database
     useEffect(()=>{
         // Backend URL
         const backEndURL = 'https://abhishek-pethani-test.herokuapp.com/order';
-        // fetch all the reviews from the database for selected course
+        // fetch all the past order from the database for the current logged in user
         axios.get(backEndURL + '/' + "course_review_test@gmail.com")
         .then((response) => {
             let result = response.data
-            // set reviews state if the success attribute of response is true 
+            // set order history state if the success attribute of response is true 
             if(result.success){
                 setOrderHistory(result.orderHistory)
                 console.log(result.orderHistory)
@@ -74,18 +74,16 @@ const OrderHistory = () => {
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                        {rows.map((row) => (
+                        {orderHistory.map((order) => (
                             <TableRow
-                            key={row.name}
+                            key={order._id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell >{row.calories}</TableCell>
-                            <TableCell >{row.fat}</TableCell>
-                            <TableCell >{row.carbs}</TableCell>
-                            <TableCell >{row.protein}</TableCell>
+                            <TableCell component="th" scope="row"> {order._id} </TableCell>
+                            <TableCell >{order.courseName}</TableCell>
+                            <TableCell >{order.date}</TableCell>
+                            <TableCell >{order.amount}</TableCell>
+                            <TableCell >{order.status}</TableCell>
                             </TableRow>
                         ))}
                         </TableBody>
@@ -93,7 +91,7 @@ const OrderHistory = () => {
                 </TableContainer>
                 : 
                 <Typography variant="h6" component="h2">
-                  No order history available.
+                  No order history is available.
                 </Typography>
             }
         </Grid>
