@@ -12,6 +12,9 @@ import Wishlist from "./components/Wishlist/Wishlist";
 import Logout from "./components/Sign out";
 import Order from "./components/Order/Order";
 import ActiveOrderOpen from "./components/Order/ActiveOrderOpen";
+import Topics from "./components/DiscussionThread/Topics";
+import TopicDetails from "./components/DiscussionThread/TopicDetails";
+import NewThread from "./components/DiscussionThread/NewThread";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route exact path="/order" element={<Order />} />
           <Route exact path="/order/:orderId" element={<ActiveOrderOpen />} />
           <Route exact path="/wishlist" element={<Wishlist />} />
+          <Route exact path="/discussion" element={<Topics />} />
+          <Route exact path="/discussion/topic/:topicId" element={<TopicDetails />} />
+          <Route exact path="/discussion/new-thread" element={<NewThread />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route
             exact
