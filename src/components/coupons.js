@@ -14,7 +14,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import NavbarComp from "./NavbarComp";
-
+import dis_img from "../assets/images/discount.webp";
 import { Navigate } from "react-router";
 
 const useStyles = makeStyles(theme => ({
@@ -73,15 +73,19 @@ export default function Profile() {
                   >
                     <CardMedia
                       component="img"
-                      height="365px"
-                      image={user.src}
+                      height="60%"
+                      image={dis_img}
                       alt="IMAGE"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         {user.value} % OFF
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        height="50%"
+                      >
                         Apply this coupon code on your checkout to avail a
                         dicount of {user.value}% on your total order value. T&C
                         apply
@@ -103,3 +107,4 @@ export default function Profile() {
 }
 
 // image citations:https://www.dreamstime.com/stock-illustration-off-red-rubber-stamp-over-white-background-image88004210
+// for grid style-https://mui.com/components/grid/

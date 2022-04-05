@@ -294,3 +294,4 @@ export default function Signup() {
     </div>
   );
 }
+// for grid style-https://mui.com/components/grid/
