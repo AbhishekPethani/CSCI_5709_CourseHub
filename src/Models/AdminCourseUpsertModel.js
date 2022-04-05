@@ -89,12 +89,31 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
     </div>
   );
 
+  const footerView = action === "view" && (
+    <div>
+      <button
+        value="false"
+        className="secondary-button button"
+        onClick={() => handleClose(false)}
+      >
+        Ok
+      </button>
+    </div>
+  );
+
+  const onImageChange = ($event) => {
+    if (!$event.target.files?.length) {
+      return;
+    }
+    onInputChange($event.target.files[0], 'courseImage');
+  }
+
   const body = (
-    <section className="editCourseModalBody">
-      <div className="group">
+    <section className={action === "view" ? 'disabled editCourseModalBody' : 'editCourseModalBody'}>
+      {action === "create" && <div className="group">
         <label>Image</label>
-        <input type="file" name="image" />
-      </div>
+        <input type="file" name="courseImage" className="course-image-input" onChange={($event) => onImageChange($event)} />
+      </div>}
       <div className="group">
         <label>Course name</label>
         <input
@@ -106,13 +125,24 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
         <Validation messages={errorMessages.courseName}></Validation>
       </div>
       <div className="group">
+        <label>Course category</label>
+        <select name="courseCategory" id="courseCategory" onChange={($event) =>
+          onInputChange($event.target.value, "courseCategory")
+        }>
+          <option value="Select" selected>Select</option>
+          <option value="Web Development" selected={course.courseCategory === 'Web Development'}>Web Development</option>
+          <option value="Backend" selected={course.courseCategory === 'Backend'}>Backend</option>
+          <option value="Database" selected={course.courseCategory === 'Database'}>Database</option>
+        </select>
+      </div>
+      <div className="group">
         <label>Author name</label>
         <input
           type="text"
-          name="authorName"
-          value={course.authorName || ""}
+          name="courseAuthor"
+          value={course.courseAuthor || ""}
           onChange={($event) =>
-            onInputChange($event.target.value, "authorName")
+            onInputChange($event.target.value, "courseAuthor")
           }
         />
       </div>
@@ -132,6 +162,7 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
         <label>Description</label>
         <textarea
           name="courseDescription"
+          className="course-description"
           value={course.courseDescription || ""}
           onChange={($event) =>
             onInputChange($event.target.value, "courseDescription")
@@ -144,7 +175,7 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
   const content = {
     headerContent: getHeaderTitle(),
     bodyContent: body,
-    footerContent: footer,
+    footerContent: action === 'view' ? footerView : footer,
     modalType: "edit",
   };
 
