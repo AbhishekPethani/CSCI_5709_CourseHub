@@ -31,7 +31,7 @@ const OrderHistory = ( {email}) => {
     // useEffect hook to get all the past orders for current logged in user from the database
     useEffect(()=>{
         // Backend URL
-        const backEndURL = 'https://abhishek-pethani-test.herokuapp.com/order/history';
+        const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/order/history';
         // fetch all the past order from the database for the current logged in user
         axios.get(backEndURL + '/' + email)
         .then((response) => {
