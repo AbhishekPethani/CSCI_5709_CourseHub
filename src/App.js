@@ -10,6 +10,8 @@ import CoursePage from "./pages/CoursePage";
 import Coupons from "./components/coupons";
 import Wishlist from "./components/Wishlist/Wishlist";
 import Logout from "./components/Sign out";
+import Order from "./components/Order/Order";
+import ActiveOrderOpen from "./components/Order/ActiveOrderOpen";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route exact path="/courses/:courseName" element={<CoursePage />} />
           <Route exact path="/my-account" element={<Profile />} />
           <Route exact path="/discount" element={<Coupons />} />
+          <Route exact path="/order" element={<Order />} />
+          <Route exact path="/order/:orderId" element={<ActiveOrderOpen />} />
           <Route exact path="/wishlist" element={<Wishlist />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route

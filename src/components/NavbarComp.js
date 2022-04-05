@@ -66,10 +66,10 @@ const NavbarComp = () => {
                     {" "}
                     Discounts{" "}
                   </Nav.Link>
-                  {/* <Nav.Link style={{ color: "white" }} as={Link} to={"/order"}>
+                  <Nav.Link style={{ color: "white" }} as={Link} to={"/order"}>
                     {" "}
                     My Orders{" "}
-                  </Nav.Link> */}
+                  </Nav.Link>
                   <Nav.Link style={{ color: "white" }} as={Link} to={"/wishlist"}>
                     {" "}
                     Wishlist{" "}
