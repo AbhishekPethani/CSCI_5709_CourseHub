@@ -22,35 +22,23 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.getContrastText(theme.palette.primary.dark)
     },
 }))
-function createData(_id, courseName, date, amount, status) {
-    return { _id, courseName, date, amount, status };
-  }
-  
-  const rows = [
-    createData(1, "React JS", "14/02/2022", "$100.00", "Completed"),
-    createData(2, "Node JS", "13/01/2022", "$150.75", "Completed"),
-    createData(3, "SQL", "09/11/2021", "$90.70", "Failed"),
-    createData(4, "Python", "27/08/2021", "$210.80", "Completed"),
-    createData(5, "Data Structure", "14/02/2022", "$55.50", "Completed")
-  ];
 
-const OrderHistory = () => {
+const OrderHistory = ( {email}) => {
     const classes = useStyles();
 
-    const [orderHistory, setOrderHistory] = useState(rows);
+    const [orderHistory, setOrderHistory] = useState([]);
 
     // useEffect hook to get all the past orders for current logged in user from the database
     useEffect(()=>{
         // Backend URL
-        const backEndURL = 'https://abhishek-pethani-test.herokuapp.com/order';
+        const backEndURL = 'https://abhishek-pethani-test.herokuapp.com/order/history';
         // fetch all the past order from the database for the current logged in user
-        axios.get(backEndURL + '/' + "course_review_test@gmail.com")
+        axios.get(backEndURL + '/' + email)
         .then((response) => {
             let result = response.data
             // set order history state if the success attribute of response is true 
             if(result.success){
                 setOrderHistory(result.orderHistory)
-                console.log(result.orderHistory)
             }
         })
         .catch((error) => {
@@ -81,7 +69,7 @@ const OrderHistory = () => {
                             >
                             <TableCell component="th" scope="row"> {order._id} </TableCell>
                             <TableCell >{order.courseName}</TableCell>
-                            <TableCell >{order.date}</TableCell>
+                            <TableCell >{order.date.split("T")[0]}</TableCell>
                             <TableCell >{order.amount}</TableCell>
                             <TableCell >{order.status}</TableCell>
                             </TableRow>

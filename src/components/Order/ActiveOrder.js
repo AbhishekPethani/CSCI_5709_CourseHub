@@ -9,23 +9,20 @@ const flexContainer = {
   padding: 0,
 };
 
-const ActiveOrder = () => {
+const ActiveOrder = ({email}) => {
   const [activeOrders, setActiveOrders] = useState([])
-    // {orderID:"1", currentState:"Awaiting Payment"},
-    // {orderID:"2", currentState:"Payment Started"}])
-  
+
   // useEffect hook to get all the active orders for current logged in user from the database
   useEffect(()=>{
     // Backend URL
-    const backEndURL = 'https://abhishek-pethani-test.herokuapp.com/order';
+    const backEndURL = 'https://abhishek-pethani-test.herokuapp.com/order/active';
     // fetch all the active order from the database for the current logged in user
-    axios.get(backEndURL + '/' + "course_review_test@gmail.com")
+    axios.get(backEndURL + '/' + email)
     .then((response) => {
         let result = response.data
         // set active order state if the success attribute of response is true 
         if(result.success){
-            // setOrderHistory(result.orderHistory)
-            console.log(result.orderHistory)
+            setActiveOrders(result.activeOrder)
         }
     })
     .catch((error) => {

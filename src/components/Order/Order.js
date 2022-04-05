@@ -5,12 +5,13 @@ import OrderHistory from './OrderHistory'
 import { Grid } from '@mui/material';
 
 const Order = () => {
+  const currentUserID = localStorage.getItem("logged_in_user")
   return (
     <>
         <NavbarComp />
         <Grid container direction="column" alignItems="center" justify="center">
-            <ActiveOrder />
-            <OrderHistory />
+            <ActiveOrder email={currentUserID} />
+            <OrderHistory email={currentUserID} />
         </Grid>
     </>
   )

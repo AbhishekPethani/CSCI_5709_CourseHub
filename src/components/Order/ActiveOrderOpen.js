@@ -16,10 +16,10 @@ const ActiveOrderOpen = () => {
   return (
       <>
           <NavbarComp />
-          <Typography gutterBottom variant="h6" mt="10px" component="h2" align='center'>Order ID {order.orderID} Status</Typography>
+          <Typography gutterBottom variant="h6" mt="10px" component="h2" align='center'>Order ID {order._id} Status</Typography>
           <Grid container mt="20px" direction="column" alignItems="center" justify="center">
             <Box sx={{ width: '50%' }}>
-              <Stepper activeStep={steps.indexOf(order.currentState)} alternativeLabel>
+              <Stepper activeStep={steps.indexOf(order.status)} alternativeLabel>
                 {steps.map((label) => (
                   <Step key={label}>
                     <StepLabel>{label}</StepLabel>
