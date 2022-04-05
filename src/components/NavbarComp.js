@@ -78,6 +78,10 @@ const NavbarComp = () => {
                     {" "}
                     Cart{" "}
                   </Nav.Link>
+                  <Nav.Link style={{ color: "white" }} as={Link} to={"/discussion"}>
+                    {" "}
+                    Discussion Forum{" "}
+                  </Nav.Link>
                   {/* <Nav.Link
                     style={{ color: "white" }}
                     as={Link}
