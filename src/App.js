@@ -10,6 +10,7 @@ import CoursePage from "./pages/CoursePage";
 import Coupons from "./components/coupons";
 import Wishlist from "./components/Wishlist/Wishlist";
 import Logout from "./components/Sign out";
+import Cart from "./pages/Cart";
 import Order from "./components/Order/Order";
 import ActiveOrderOpen from "./components/Order/ActiveOrderOpen";
 import Topics from "./components/DiscussionThread/Topics";
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/discussion/topic/:topicId" element={<TopicDetails />} />
           <Route exact path="/discussion/new-thread" element={<NewThread />} />
           <Route exact path="/logout" element={<Logout />} />
+          <Route exact path="/cart" element={<Cart />} />
           <Route
             exact
             path="/authenticate/forgotPassword"

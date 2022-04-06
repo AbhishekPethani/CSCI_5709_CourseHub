@@ -82,7 +82,7 @@ const Home = () => {
             className={classes.gridcontainer}>
             {selectedCourses.map((course) => {
               return <Grid item xs={12} sm={6} md={4}>
-                <div><Card courseName={course.courseName} courseDescription={course.courseDescription} courseImage={course.courseImage} /></div></Grid>
+                <div><Card courseName={course.courseName} courseDescription={course.courseDescription} courseImage={course.courseImage} coursePrice={course.coursePrice} courseAuthor={course.courseAuthor} /></div></Grid>
             })}
           </Grid>
         </div>
