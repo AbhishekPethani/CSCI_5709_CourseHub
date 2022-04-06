@@ -257,10 +257,10 @@ function Cart() {
                         }}>
                             {!isCartEmpty && <Grid container spacing={2}>
                                 <Grid item xs={12}>
-                                    <div style={{ padding: '30px' }}>
+                                    <div style={{ padding: '30px', maxHeight: '70%' }}>
                                         <ThemeProvider theme={theme}>
                                             <div >
-                                                <Typography display="inline" sx={{ paddingRight: '5px', color: '#464646' }} variant="overline">
+                                                <Typography display="inline" sx={{ paddingRight: '5px', color: '#464646' }} variant="subtitle2">
                                                     Total:
                                                 </Typography>
                                                 <Typography display="inline" sx={{ color: '#464646' }} variant="subtitle1">
@@ -269,7 +269,7 @@ function Cart() {
 
                                             </div>
                                             <div>
-                                                <Typography sx={{ paddingRight: '5px', color: '#464646' }} variant="overline">
+                                                <Typography sx={{ paddingRight: '5px', color: '#464646' }} display="inline" variant="subtitle2">
                                                     Discount:
                                                 </Typography>
                                                 <Typography display="inline" sx={{ color: '#464646' }} variant="subtitle1">
@@ -277,7 +277,7 @@ function Cart() {
                                                 </Typography>
                                             </div>
                                             <div>
-                                                <Typography sx={{ paddingRight: '5px', color: '#464646' }} variant="overline">
+                                                <Typography sx={{ paddingRight: '5px', color: '#464646' }} display="inline" variant="subtitle2">
                                                     Cart Total:
                                                 </Typography>
                                                 <Typography display="inline" sx={{ color: '#464646' }} variant="subtitle1">
