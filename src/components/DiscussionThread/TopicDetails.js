@@ -11,6 +11,7 @@ import NavbarComp from "../NavbarComp";
 import { useNavigate, useParams } from 'react-router-dom';
 import { AccountCircle } from "@mui/icons-material";
 import './../../assets/css/TopicDetails.css'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const DiscussionThreadEndpoint = "http://localhost:3000/discussion";
 
@@ -60,6 +61,16 @@ export default function TopicDetails(props) {
 		});
 	}
 
+	const deleteComment = (commentId) => {
+		let deleteCommentUrl = DiscussionThreadEndpoint + "/comment/" + commentId;
+		axios.delete(deleteCommentUrl).then((res) => {
+            let fetchCommentsUrl = DiscussionThreadEndpoint + "/comments" + "/" + params.topicId;
+            axios.get(fetchCommentsUrl).then((res) => {
+				setComments(res.data.comments);
+			});
+        });
+	}
+
 	return (
 		<div>
 			<NavbarComp />
@@ -102,6 +113,9 @@ export default function TopicDetails(props) {
 	                        	<div className='comment-text'>
 	                        		{comment.comment};
 	                        	</div>
+								<div className="delete-icon">
+									{userId == comment.userId ? (<DeleteIcon className='icon_delete' sx={{ color: "darkred" }} onClick={() => deleteComment(comment._id)}/>) : (<></>)}
+								</div>
 	                        </div>
 	                    ))}
                     </div>
