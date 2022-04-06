@@ -7,6 +7,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavbarComp = () => {
+  const userId = localStorage.getItem("logged_in_user");
   const [isAdmin, setAdmin] = useState(
     (localStorage.getItem("isAdmin") || "false") === "true"
   );
@@ -80,10 +81,15 @@ const NavbarComp = () => {
                     {" "}
                     Cart{" "} 
                   </Nav.Link>
-                  <Nav.Link style={{ color: "white" }} as={Link} to={"/logout"}>
+
+                  {userId !== '' && <Nav.Link style={{ color: "white" }} as={Link} to={"/logout"}>
                     {" "}
                     Logout{" "}
-                  </Nav.Link>
+                  </Nav.Link> }
+                  {userId === '' && <Nav.Link style={{ color: "white" }} as={Link} to={"/login"}>
+                    {" "}
+                    Login{" "}
+                  </Nav.Link>}
                   {/* <Nav.Link
                     style={{ color: "white" }}
                     as={Link}

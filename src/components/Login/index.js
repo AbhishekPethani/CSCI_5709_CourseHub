@@ -6,9 +6,9 @@ import React, { useState, useEffect } from "react";
 import { Box, Button, Link, TextField, Typography, Paper } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
-import Appbar from "../AppBar/AppBar";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
+import NavbarComp from '../../components/NavbarComp';
 
 /**
  * @Ridampreet
@@ -140,6 +140,7 @@ export default function Login() {
   return (
     <div>
       {/* <Appbar></Appbar> */}
+      <NavbarComp />
       <div className={classes.container}>
         {/* <Paper elevation={24} style={styleForPaper}> */}
         <Grid container spacing={2}>
