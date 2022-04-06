@@ -14,7 +14,6 @@ import axios from 'axios';
 const ReviewSection = ( { courseName, purchasedBy } ) => {
   // current logged in user
   const currentUser = localStorage.getItem("name");
-  // const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
   // state to store all the reviews for the selected course
   const [reviews, setReviews] = useState([]);
   // state to show and hide ReviewModal
