@@ -209,6 +209,10 @@ function Cart() {
                         <Grid item xs={6}>
                             <ThemeProvider theme={theme}>
                                 <Typography sx={{ textAlign: 'left', color: '#464646' }} variant="subtitle1">
+                                    Total: ${cartTotal}
+                                </Typography><Typography sx={{ textAlign: 'left', color: '#464646' }} variant="subtitle1">
+                                    Discount: $0
+                                </Typography><Typography sx={{ textAlign: 'left', color: '#464646' }} variant="subtitle1">
                                     Cart Total: ${cartTotal}
                                 </Typography>
                             </ThemeProvider>
