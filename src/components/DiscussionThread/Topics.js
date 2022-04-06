@@ -84,7 +84,7 @@ export default function Topics(props) {
                                 </div>
                             </div>
                             <div className="delete-icon">
-                                <DeleteIcon className='icon_delete' sx={{ color: "darkred" }} onClick={() => deleteTopic(topic._id)}/>
+                                {userId == topic.userId ? (<DeleteIcon className='icon_delete' sx={{ color: "darkred" }} onClick={() => deleteTopic(topic._id)}/>) : (<></>)}
                             </div>
                         </div>
                     ))}
