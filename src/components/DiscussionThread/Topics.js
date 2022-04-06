@@ -10,6 +10,7 @@ import NavbarComp from "../NavbarComp";
 import { useNavigate } from 'react-router-dom';
 import { AccountCircle } from "@mui/icons-material";
 import './../../assets/css/Topic.css'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const DiscussionThreadEndpoint = "http://localhost:3000/discussion";
 
@@ -44,6 +45,16 @@ export default function Topics(props) {
         navigate("/discussion/new-thread");
     }
 
+    const deleteTopic = (topicId) => {
+        let deleteTopicUrl = DiscussionThreadEndpoint + "/topic/" + topicId;
+        axios.delete(deleteTopicUrl).then((res) => {
+            let fetchTopicsUrl = DiscussionThreadEndpoint + "/topics";
+            axios.get(fetchTopicsUrl).then((res) => {
+                setTopics(res.data.topics);
+            });
+        });
+    }
+
     return (
         <div>
             <NavbarComp />
@@ -71,6 +82,9 @@ export default function Topics(props) {
                                 <div className='topic-description-limit'>
                                     {topic.description}
                                 </div>
+                            </div>
+                            <div className="delete-icon">
+                                {userId == topic.userId ? (<DeleteIcon className='icon_delete' sx={{ color: "darkred" }} onClick={() => deleteTopic(topic._id)}/>) : (<></>)}
                             </div>
                         </div>
                     ))}

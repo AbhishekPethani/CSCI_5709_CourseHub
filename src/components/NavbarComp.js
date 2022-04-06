@@ -2,19 +2,9 @@
  Author: [Abhishek Pareshbhai Pethani] (ab823206@dal.ca)
  Author: [Aditya Bakshi] (aditya.bakshi@dal.ca)
 ========================================================= */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CoursePage from "../pages/CoursePage";
-import Home from "../pages/Home";
-import Coupons from "./coupons";
-import Login from "./Login";
-import Profile from "./Profile";
-import Logout from "./Sign out";
-import Register from "./Signup";
-import ForgotPassword from "./ForgotPassword";
-import AdminDashboard from "./Admin/AdminDashboard";
-import Wishlist from "./Wishlist/Wishlist"
+import { Link } from "react-router-dom";
 
 const NavbarComp = () => {
   const [isAdmin, setAdmin] = useState(

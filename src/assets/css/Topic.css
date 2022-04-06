@@ -12,7 +12,16 @@
 }
 
 .topic-metadata {
-    width: 80%;
+    width: 75%;
+}
+
+.delete-icon {
+    width: 5%;
+    text-align: right;
+}
+
+.icon_delete {
+    cursor: pointer;
 }
 
 .topic-description-limit {
