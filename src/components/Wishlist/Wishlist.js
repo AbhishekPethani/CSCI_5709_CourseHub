@@ -70,6 +70,9 @@ export default function Wishlist(props) {
 
     // executed when the first time component loaded
     useEffect(async () => {
+        if (localStorage.getItem("logged_in_user") == '') {
+            navigate(`/login`);
+        }
         await fetchWishlist();
         setLoading(false);
     }, []);

@@ -33,6 +33,9 @@ export default function CourseCard(props) {
 }
 
 const handleClickCart = () => {
+  if (localStorage.getItem("logged_in_user") == '') {
+    navigate(`/login`);
+  }
   const body = {
     userId: localStorage.getItem("logged_in_user"),
     courseName: props.courseName,

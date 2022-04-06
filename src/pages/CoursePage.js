@@ -20,122 +20,127 @@ import ReviewSection from "../components/CourseReview/ReviewSection";
 import NavbarComp from '../components/NavbarComp';
 import WishlistIcon from "../components/Wishlist/WishlistIcon";
 import { addToCart } from '../services/cart';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+  root: {
     //   maxWidth: 350,
     //   maxHeight: 1500,
-      margin: autocompleteClasses,
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    avatar: {
-      backgroundColor: red[500],
-    },
-  }));
+    margin: autocompleteClasses,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+}));
 
 function CoursePage() {
-    const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
-    const [wishlist, setWishlist] = useState('');
-    const classes = useStyles();
-    const [course, setCourse] = useState([]);
-    const params = useParams();
-    // const [body, setBody] = useState({
-    //   userId: "",
-    //   courseName: ""
-    // });
+  let navigate = useNavigate();
+  const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
+  const [wishlist, setWishlist] = useState('');
+  const classes = useStyles();
+  const [course, setCourse] = useState([]);
+  const params = useParams();
+  // const [body, setBody] = useState({
+  //   userId: "",
+  //   courseName: ""
+  // });
 
-    useEffect(() => {
-        getCourseByName(params.courseName).then((response) => {
-            setCourse(response.data.course)
-        });
-    }, []);
+  useEffect(() => {
+    getCourseByName(params.courseName).then((response) => {
+      setCourse(response.data.course)
+    });
+  }, []);
 
-    useEffect(() => {
-      if(course.length > 0) {
-        setWishlist(<WishlistIcon userId={userId} courseId={course[0]._id} />);
-      }
-    }, [course]);
-
-    let courseName, courseDescription, coursePrice, courseImage, courseAuthor, purchasedBy, courseDetails ;
-    if(course !== undefined && course.length > 0){
-        courseName = course[0].courseName;
-        courseDescription = course[0].courseDescription;
-        coursePrice = course[0].coursePrice;
-        courseImage = course[0].courseImage;
-        courseAuthor = course[0].courseAuthor;
-        purchasedBy = course[0].purchasedBy;
-        courseDetails = course[0].courseDetails;
+  useEffect(() => {
+    if (course.length > 0) {
+      setWishlist(<WishlistIcon userId={userId} courseId={course[0]._id} />);
     }
+  }, [course]);
 
-    const handleClick = (event) => {
-      // setBody(userId, courseName);
-      const body = {
-        userId: userId,
-        courseName: courseName,
-        courseImage: courseImage,
-        coursePrice: coursePrice,
-        courseAuthor: courseAuthor
-      }
-      event.preventDefault();
-      addToCart(body);
+  let courseName, courseDescription, coursePrice, courseImage, courseAuthor, purchasedBy, courseDetails;
+  if (course !== undefined && course.length > 0) {
+    courseName = course[0].courseName;
+    courseDescription = course[0].courseDescription;
+    coursePrice = course[0].coursePrice;
+    courseImage = course[0].courseImage;
+    courseAuthor = course[0].courseAuthor;
+    purchasedBy = course[0].purchasedBy;
+    courseDetails = course[0].courseDetails;
+  }
+
+  const handleClick = (event) => {
+    if (localStorage.getItem("logged_in_user") == '') {
+      navigate(`/login`);
+    }
+    // setBody(userId, courseName);
+    const body = {
+      userId: userId,
+      courseName: courseName,
+      courseImage: courseImage,
+      coursePrice: coursePrice,
+      courseAuthor: courseAuthor
+    }
+    event.preventDefault();
+    addToCart(body);
   };
 
-    return (
-      <>
+  return (
+    <>
       <NavbarComp />
-        <Card size="lg" className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="500"
-          image={courseImage}
-          title={courseName}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h3" component="h2">
-            <table className='tbl'>
-              <tr>
-                <td className='tbl-cell1'>{courseName}</td>
-                <td className='tbl-cell2'>
-                  <div className='wishlist-btn'><Typography>{wishlist}</Typography></div>
-                </td>
-              </tr>
-            </table>
-          </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-            Created By: {courseAuthor}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {courseDetails}
-          </Typography>
-          <br/>
-          <Typography gutterBottom variant="h5" component="h2">
-            ${coursePrice}
-          </Typography> 
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary" onClick={handleClick}>
-          Add to Cart
-        </Button>
-      </CardActions>
-      <ReviewSection  courseName = {courseName} purchasedBy = {purchasedBy} />
-    </Card>
+      <Card size="lg" className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="500"
+            image={courseImage}
+            title={courseName}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h3" component="h2">
+              <table className='tbl'>
+                <tr>
+                  <td className='tbl-cell1'>{courseName}</td>
+                  <td className='tbl-cell2'>
+                    <div className='wishlist-btn'><Typography>{wishlist}</Typography></div>
+                  </td>
+                </tr>
+              </table>
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h2">
+              Created By: {courseAuthor}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {courseDetails}
+            </Typography>
+            <br />
+            <Typography gutterBottom variant="h5" component="h2">
+              ${coursePrice}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" onClick={handleClick}>
+            Add to Cart
+          </Button>
+        </CardActions>
+        <ReviewSection courseName={courseName} purchasedBy={purchasedBy} />
+      </Card>
     </>
-    );
+  );
 }
 
 export default CoursePage
