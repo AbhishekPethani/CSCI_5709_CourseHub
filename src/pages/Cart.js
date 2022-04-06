@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import CartTable from '../components/Cart/CartTable';
 import NavbarComp from '../components/NavbarComp';
 import { Box, Grid, Divider, Link, Typography, Paper } from "@mui/material";
-// import IconButton from '@material-ui/core/IconButton';
-// import Delete from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+import Delete from '@material-ui/icons/Delete';
 import { getCart, deleteFromCart } from '../services/cart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -179,9 +179,9 @@ function Cart() {
 
                                             </Grid>
                                             <Grid item xs={3}>
-                                                {/* <IconButton onClick={() => removeItem(item.courseName)} aria-label="delete" color="primary">
+                                                <IconButton onClick={() => removeItem(item.courseName)} aria-label="delete" color="primary">
                                                     <Delete style={{ fontSize: '30px' }} />
-                                                </IconButton> */}
+                                                </IconButton>
                                             </Grid>
 
                                         </Grid>
