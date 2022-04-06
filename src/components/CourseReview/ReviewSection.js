@@ -13,7 +13,7 @@ import axios from 'axios';
 
 const ReviewSection = ( { courseName, purchasedBy } ) => {
   // current logged in user
-  const currentUser = "Abhishek";
+  const currentUser = localStorage.getItem("name");
   // const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
   // state to store all the reviews for the selected course
   const [reviews, setReviews] = useState([]);
