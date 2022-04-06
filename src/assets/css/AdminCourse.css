@@ -100,6 +100,9 @@
 
 .course-description {
   padding: 5px;
+  border-radius: 3px;
+  outline: none;
+  border: solid 1px #95989a;
 }
 
 .card-actions {
@@ -127,4 +130,26 @@
 .img-animate:hover {
   transform: scale(1.01);
   -webkit-transform: scale(1.02);
+}
+
+.section-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-name-input,
+.course-author-input,
+.course-price-input {
+  width: 210px;
+}
+
+.course-category-select {
+  width: 210px;
+  line-height: 39px;
+  padding-left: 5px;
+  border-radius: 3px;
+  outline: none;
+  border: solid 1px #95989a;
+  height: 31px;
 }
