@@ -71,8 +71,6 @@ theme.typography.overline = {
 function Cart() {
     useEffect(() => {
         getCartItems(userId);
-
-
     }, []);
     const classes = useStyles();
 
@@ -106,7 +104,6 @@ function Cart() {
                 getCartItems(userId);
             }
         });
-
     };
 
     return (
@@ -152,9 +149,6 @@ function Cart() {
 
                                         </Typography>
                                     </ThemeProvider>
-
-
-
                                 </Grid>
                                 <Grid item xs={3}>
                                     <ThemeProvider theme={theme}>
@@ -162,21 +156,17 @@ function Cart() {
                                             PRICE
                                         </Typography>
                                     </ThemeProvider>
-
                                 </Grid>
                                 <Grid item xs={3}>
                                 </Grid>
-
                             </Grid>
                         </Grid>}
                         {cartItems?.length > 0 &&
                             cartItems?.map((item, index) => {
                                 return (
-
                                     <Box sx={{
                                         p: 2,
                                         justifyContent: 'center'
-
                                     }}>
                                         <Divider />
                                         <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
@@ -194,8 +184,6 @@ function Cart() {
 
                                                     </Typography>
                                                 </ThemeProvider>
-
-
                                             </Grid>
                                             <Grid item xs={3}>
                                                 <ThemeProvider theme={theme}>
@@ -204,23 +192,16 @@ function Cart() {
 
                                                     </Typography>
                                                 </ThemeProvider>
-
-
                                             </Grid>
                                             <Grid item xs={3}>
                                                 <IconButton onClick={() => removeItem(item.courseName)} aria-label="delete" color="primary">
                                                     <Delete style={{ fontSize: '30px' }} />
                                                 </IconButton>
                                             </Grid>
-
                                         </Grid>
-
                                     </Box>
-
                                 )
                             })}
-
-
 
                     </Box>
                     {!isCartEmpty && <Grid container spacing={2}>
@@ -229,18 +210,13 @@ function Cart() {
                             <ThemeProvider theme={theme}>
                                 <Typography sx={{ textAlign: 'left', color: '#464646' }} variant="subtitle1">
                                     Cart Total: ${cartTotal}
-
                                 </Typography>
                             </ThemeProvider>
                         </Grid>
-
-
                     </Grid>}
                 </div>
             </div>
         </div>
-
-
     )
 }
 
