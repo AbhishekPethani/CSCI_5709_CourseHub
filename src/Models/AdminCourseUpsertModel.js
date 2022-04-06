@@ -1,6 +1,5 @@
 /*=======================================================
  Author: [Sourav Malik] (sr343164@dal.ca)
- This feature is not a part of assignment 3. It is built for the project.
 ========================================================= */
 import { useEffect, useState } from "react";
 import { Modal } from "../components/Admin/AdminModel";
@@ -110,54 +109,58 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
 
   const body = (
     <section className={action === "view" ? 'disabled editCourseModalBody' : 'editCourseModalBody'}>
-      {action === "create" && <div className="group">
-        <label>Image</label>
-        <input type="file" name="courseImage" className="course-image-input" onChange={($event) => onImageChange($event)} />
-      </div>}
-      <div className="group">
-        <label>Course name</label>
-        <input
-          type="text"
-          name="courseName"
-          value={course.courseName || ""}
-          onChange={($event) => onCourseNameChange($event.target.value)}
-        />
-        <Validation messages={errorMessages.courseName}></Validation>
+      <div className="section-container">
+        <div className="group">
+          <label>Course name</label>
+          <input
+            type="text"
+            name="courseName"
+            className="course-name-input"
+            value={course.courseName || ""}
+            onChange={($event) => onCourseNameChange($event.target.value)}
+          />
+          <Validation messages={errorMessages.courseName}></Validation>
+        </div>
+        <div className="group">
+          <label>Course category</label>
+          <select name="courseCategory" id="courseCategory" className="course-category-select" onChange={($event) =>
+            onInputChange($event.target.value, "courseCategory")
+          }>
+            <option value="Select" selected>Select</option>
+            <option value="Web Development" selected={course.courseCategory === 'Web Development'}>Web Development</option>
+            <option value="Backend" selected={course.courseCategory === 'Backend'}>Backend</option>
+            <option value="Database" selected={course.courseCategory === 'Database'}>Database</option>
+          </select>
+        </div>
       </div>
-      <div className="group">
-        <label>Course category</label>
-        <select name="courseCategory" id="courseCategory" onChange={($event) =>
-          onInputChange($event.target.value, "courseCategory")
-        }>
-          <option value="Select" selected>Select</option>
-          <option value="Web Development" selected={course.courseCategory === 'Web Development'}>Web Development</option>
-          <option value="Backend" selected={course.courseCategory === 'Backend'}>Backend</option>
-          <option value="Database" selected={course.courseCategory === 'Database'}>Database</option>
-        </select>
+      <div className="section-container">
+        <div className="group">
+          <label>Author name</label>
+          <input
+            type="text"
+            name="courseAuthor"
+            className="course-author-input"
+            value={course.courseAuthor || ""}
+            onChange={($event) =>
+              onInputChange($event.target.value, "courseAuthor")
+            }
+          />
+        </div>
+        <div className="group">
+          <label>Price</label>
+          <input
+            type="number"
+            min="0"
+            name="coursePrice"
+            className="course-price-input"
+            value={course.coursePrice || 0}
+            onChange={($event) =>
+              onInputChange($event.target.value, "coursePrice")
+            }
+          />
+        </div>
       </div>
-      <div className="group">
-        <label>Author name</label>
-        <input
-          type="text"
-          name="courseAuthor"
-          value={course.courseAuthor || ""}
-          onChange={($event) =>
-            onInputChange($event.target.value, "courseAuthor")
-          }
-        />
-      </div>
-      <div className="group">
-        <label>Price</label>
-        <input
-          type="number"
-          min="0"
-          name="coursePrice"
-          value={course.coursePrice || 0}
-          onChange={($event) =>
-            onInputChange($event.target.value, "coursePrice")
-          }
-        />
-      </div>
+
       <div className="group">
         <label>Description</label>
         <textarea
@@ -169,6 +172,11 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
           }
         />
       </div>
+      {action === "create" && <div className="group">
+        <label>Image</label>
+        <input type="file" name="courseImage" className="course-image-input" onChange={($event) => onImageChange($event)} />
+      </div>}
+
     </section>
   );
 

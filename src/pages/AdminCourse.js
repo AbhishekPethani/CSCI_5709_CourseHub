@@ -1,6 +1,5 @@
 /*=======================================================
  Author: [Sourav Malik] (sr343164@dal.ca)
- This feature is not a part of assignment 3. It is built for the project.
 ========================================================= */
 import React, { useEffect, useState } from "react";
 import Toaster from "../components/Admin/AdminToaster";

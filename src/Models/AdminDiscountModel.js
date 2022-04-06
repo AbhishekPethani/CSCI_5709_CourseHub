@@ -1,3 +1,6 @@
+/*=======================================================
+ Author: [Sourav Malik] (sr343164@dal.ca)
+========================================================= */
 import { Modal } from "../components/Admin/AdminModel";
 import "../assets/css/AdminDiscount.css";
 import { useEffect, useState } from "react";
