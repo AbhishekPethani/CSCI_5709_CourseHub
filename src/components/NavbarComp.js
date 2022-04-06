@@ -66,10 +66,10 @@ const NavbarComp = () => {
                     {" "}
                     Discounts{" "}
                   </Nav.Link>
-                  {/* <Nav.Link style={{ color: "white" }} as={Link} to={"/order"}>
+                  <Nav.Link style={{ color: "white" }} as={Link} to={"/order"}>
                     {" "}
                     My Orders{" "}
-                  </Nav.Link> */}
+                  </Nav.Link>
                   <Nav.Link style={{ color: "white" }} as={Link} to={"/wishlist"}>
                     {" "}
                     Wishlist{" "}
@@ -77,6 +77,10 @@ const NavbarComp = () => {
                   <Nav.Link style={{ color: "white" }} as={Link} to={"/cart"}>
                     {" "}
                     Cart{" "}
+                  </Nav.Link>
+                  <Nav.Link style={{ color: "white" }} as={Link} to={"/discussion"}>
+                    {" "}
+                    Discussion Forum{" "}
                   </Nav.Link>
                   {/* <Nav.Link
                     style={{ color: "white" }}

@@ -41,12 +41,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Profile() {
-  const styleForPaper = {
-    padding: 20,
-    height: "20vh",
-    width: 400,
-    margin: "20px auto"
-  };
   const classes = useStyles();
   const navigate = useNavigate();
   var currentUser = localStorage.getItem("logged_in_user");
@@ -127,5 +121,5 @@ export default function Profile() {
     </div>
   );
 }
-// citation for the paper and the paper styling is -https://www.youtube.com/watch?v=L2RnP5vhbdg&t=640s
-// for paper style-https://mui.com/components/grid/
+
+// for grid style-https://mui.com/components/grid/

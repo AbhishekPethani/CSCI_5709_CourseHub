@@ -116,6 +116,8 @@ export default function Login() {
           email === data.users[0].email &&
           password === data.users[0].password
         ) {
+          localStorage.setItem("name", data.users[0].firstName);
+
           localStorage.setItem("logged_in_user", email);
           if (email === "sourav@gmail.com") {
             localStorage.setItem("isAdmin", true);
