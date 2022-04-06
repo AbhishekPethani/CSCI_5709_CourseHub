@@ -42,7 +42,11 @@ export default function Topics(props) {
     }
 
     const createNewThread = () => {
-        navigate("/discussion/new-thread");
+        if (localStorage.getItem("logged_in_user") == '') {
+            navigate(`/login`);
+        } else {
+            navigate("/discussion/new-thread");
+        }
     }
 
     const deleteTopic = (topicId) => {

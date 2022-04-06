@@ -76,9 +76,9 @@ export default function Profile() {
   useEffect(() => {
     currentUser = localStorage.getItem("logged_in_user");
 
-    if (currentUser === null) {
-      alert("Please sign in to accesss the account");
-      navigate("/authenticate/login");
+    if (currentUser === '') {
+      // alert("Please sign in to accesss the account");
+      navigate("/login");
     }
   });
   const Item = styled(Paper)(({ theme }) => ({

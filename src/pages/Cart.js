@@ -7,6 +7,7 @@ import { getCart, deleteFromCart } from '../services/cart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from "@material-ui/core/styles";
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     h1: {
@@ -69,7 +70,11 @@ theme.typography.overline = {
 };
 
 function Cart() {
+    let navigate = useNavigate();
     useEffect(() => {
+        if (localStorage.getItem("logged_in_user") == '') {
+            navigate(`/login`);
+        }
         getCartItems(userId);
     }, []);
     const classes = useStyles();

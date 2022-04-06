@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import NavbarComp from '../NavbarComp'
 import ActiveOrder from './ActiveOrder'
 import OrderHistory from './OrderHistory'
 import { Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("logged_in_user") == '') {
+        navigate(`/login`);
+    }
+}, [])
   const currentUserID = localStorage.getItem("logged_in_user")
   return (
     <>
