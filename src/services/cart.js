@@ -6,7 +6,7 @@ import axios from 'axios';
 
 // Backend URL
 // const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/courses';
-const backEndURL = 'http://localhost:3000/cart'
+const backEndURL = 'http://localhost:8080/cart'
 
 // Method to get all the cart items for a user
 const getCart = (userId) => {
@@ -20,7 +20,7 @@ const addToCart = (item) => {
 
 // Method to delete item from cart
 const deleteFromCart = (item) => {
-    return axios.delete(backEndURL + "/delete"), item;
+    return axios.delete(backEndURL + "/delete", {data: item});
 }
 
 export { getCart, addToCart, deleteFromCart }

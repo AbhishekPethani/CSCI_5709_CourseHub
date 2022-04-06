@@ -86,7 +86,8 @@ function CoursePage() {
         userId: userId,
         courseName: courseName,
         courseImage: courseImage,
-        coursePrice: coursePrice
+        coursePrice: coursePrice,
+        courseAuthor: courseAuthor
       }
       event.preventDefault();
       addToCart(body);
