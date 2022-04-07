@@ -38,18 +38,20 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
     // Backend URL
     const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/reviews';
     // fetch all the reviews from the database for selected course
-    axios.get(backEndURL + '/' + courseName)
-    .then((response) => {
-        let result = response.data
-        // set reviews state if the success attribute of response is true 
-        if(result.success){
-            setReviews(result.reviews)
-        }
+    if(courseName){
+      axios.get(backEndURL + '/' + courseName)
+      .then((response) => {
+          let result = response.data
+          // set reviews state if the success attribute of response is true 
+          if(result.success){
+              setReviews(result.reviews)
+          }
+      })
+      .catch((error) => {
+          console.log(error)
+      })
+      }
     })
-    .catch((error) => {
-        console.log(error)
-    })
-  }, [])
   
   // useEffect hook to delete review on isYes state changes
   useEffect(() => {
