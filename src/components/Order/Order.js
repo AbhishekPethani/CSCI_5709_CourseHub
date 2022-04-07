@@ -17,7 +17,7 @@ const Order = () => {
     <>
         <NavbarComp />
         <Grid container direction="column" alignItems="center" justify="center">
-            <ActiveOrder email={currentUserID} />
+            {/* <ActiveOrder email={currentUserID} /> */}
             <OrderHistory email={currentUserID} />
         </Grid>
     </>
