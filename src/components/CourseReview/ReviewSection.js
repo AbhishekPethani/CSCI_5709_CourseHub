@@ -52,7 +52,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
       })
       isFirst = false
       }
-    })
+    }, [])
   
   // useEffect hook to delete review on isYes state changes
   useEffect(() => {
