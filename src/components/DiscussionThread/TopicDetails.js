@@ -111,7 +111,7 @@ export default function TopicDetails(props) {
 									</div>
 	                        	</div>
 	                        	<div className='comment-text'>
-	                        		{comment.comment};
+	                        		{comment.comment}
 	                        	</div>
 								<div className="delete-icon">
 									{userId == comment.userId ? (<DeleteIcon className='icon_delete' sx={{ color: "darkred" }} onClick={() => deleteComment(comment._id)}/>) : (<></>)}
