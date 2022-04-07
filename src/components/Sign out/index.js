@@ -53,5 +53,6 @@ export default function Login() {
 
   localStorage.setItem("isAdmin", false);
   localStorage.setItem("logged_in_user", "");
+  localStorage.setItem("name", "");
   window.open('/', '_self'); 
 }

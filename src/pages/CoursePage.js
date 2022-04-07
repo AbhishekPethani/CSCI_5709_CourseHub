@@ -53,6 +53,7 @@ function CoursePage() {
   const [wishlist, setWishlist] = useState('');
   const classes = useStyles();
   const [course, setCourse] = useState([]);
+  const [courseNameReview, setCourseNameReview] = useState('');
   const params = useParams();
   // const [body, setBody] = useState({
   //   userId: "",
@@ -62,6 +63,9 @@ function CoursePage() {
   useEffect(() => {
     getCourseByName(params.courseName).then((response) => {
       setCourse(response.data.course)
+      if (response.data.course !== undefined && response.data.course.length > 0) {
+        setCourseNameReview(response.data.course[0].courseName);
+      }
     });
   }, []);
 
@@ -137,7 +141,7 @@ function CoursePage() {
             Add to Cart
           </Button>
         </CardActions>
-        <ReviewSection courseName={courseName} purchasedBy={purchasedBy} />
+        {courseNameReview !== '' && <ReviewSection courseName={courseNameReview} purchasedBy={purchasedBy} />}
       </Card>
     </>
   );
