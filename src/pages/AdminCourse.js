@@ -23,6 +23,7 @@ function Course() {
       courseName: "",
       courseAuthor: "",
       courseDescription: "",
+      courseDetails: "",
       coursePrice: 0,
       courseCategory: "",
       courseImage: "",
@@ -88,6 +89,7 @@ function Course() {
       orgCourse.coursePrice = data.coursePrice;
       orgCourse.courseCategory = data.courseCategory;
       orgCourse.courseDescription = data.courseDescription;
+      orgCourse.courseDetails = data.courseDetails;
 
       setCourses(updatedCourses);
       setToasterMessage(
@@ -133,6 +135,7 @@ function Course() {
         courseName: "",
         courseAuthor: "",
         courseDescription: "",
+        courseDetails: "",
         coursePrice: 0,
         courseCategory: "",
         courseImage: ""
@@ -186,6 +189,7 @@ function Course() {
                     courseName: "",
                     courseAuthor: "",
                     courseDescription: "",
+                    courseDetails: "",
                     coursePrice: 0,
                     courseCategory: "",
                     courseImage: "",
