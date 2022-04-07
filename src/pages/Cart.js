@@ -8,6 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from "@material-ui/core/styles";
 import { useNavigate } from 'react-router-dom';
+import { getDiscount } from '../services/coupons';
 
 const useStyles = makeStyles((theme) => ({
     h1: {
@@ -92,7 +93,11 @@ function Cart() {
     const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
     const [isCartEmpty, setIsCartEmpty] = useState(false);
     const [cartItems, setCartItems] = useState([]);
+    const [coupon, setCoupon] = useState("");
     const [cartTotal, setCartTotal] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [discountValue, setdiscountValue] = useState(0);
+    const [errorMessage, setErrorMessage] = useState('');
 
 
     const getCartItems = (userId) => {
@@ -100,12 +105,12 @@ function Cart() {
             if (response.data.items.length > 0) {
                 setIsCartEmpty(false);
                 setCartItems(response.data.items);
+                setTotal(response.data.cartTotal);
                 setCartTotal(response.data.cartTotal);
             } else {
                 setCartItems([]);
                 setIsCartEmpty(true);
             }
-            console.log('Cart Items ' + response);
         });
     };
     const removeItem = (courseName) => {
@@ -113,12 +118,39 @@ function Cart() {
             userId: userId,
             courseName: courseName
         }
+        setdiscountValue(0);
+        setCoupon('');
         deleteFromCart(body).then((result) => {
             if (result) {
                 getCartItems(userId);
             }
         });
     };
+
+    
+
+    const handleCouponChange = (event) => {
+        setCoupon(event.target.value)
+    }
+
+    const getCoupon = () => {
+        getDiscount(coupon).then((response) => {
+            if (response && response.data && response.data.coupon.length > 0) {
+                if (response.data.coupon[0].value !== 0) {
+                    setErrorMessage('');
+                    let discountAmount = (total * ((response.data.coupon[0].value) / 100));
+                    setdiscountValue(discountAmount);
+                    let amount = total - discountAmount;
+                    setCartTotal(amount);
+                }
+            } else {
+                setErrorMessage('Invalid Coupon!!')
+                setdiscountValue(0);
+                setCartTotal(total);
+            }
+        });
+    }
+
 
     return (
         <div>
@@ -151,7 +183,7 @@ function Cart() {
                                 }}
                             >
                                 {isCartEmpty && <div style={{ padding: '30px' }}>  <Typography sx={{ textAlign: 'center', fontSize: '2vw', color: 'slategray' }} variant="h4" component="h2">
-                                    Your Cart is Empty !!
+                                    Your Cart is Empty!!
                                 </Typography></div>}
                                 {!isCartEmpty && <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
                                     <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
@@ -234,16 +266,17 @@ function Cart() {
                         }}>
                             <ThemeProvider theme={theme}>
                                 <Typography sx={{ textAlign: 'left', color: 'slategray', padding: '10px' }} variant="h2" component="h2">
-                                    Have Coupon ?
-
+                                    Have Coupon?
                                 </Typography>
                             </ThemeProvider>
                             <div style={{ display: "flex", padding: '10px' }}>
-                                <TextField id="filled-basic" label="Enter Coupon Code" variant="filled" />
-                                <Button variant="contained" sx={{ backgroundColor: "rgb(63, 81, 181)" }}   >
+                                <TextField id="filled-basic" label="Enter Coupon Code" variant="filled" name='coupon' value={coupon} onChange={handleCouponChange} />
+                                <Button variant="contained" sx={{ backgroundColor: "rgb(63, 81, 181)" }} onClick={() => getCoupon()}>
                                     APPLY
                                 </Button>
+                                
                             </div>
+                            <Typography sx={{ textAlign: 'left', color: 'red', paddingLeft: '10px' }}> {errorMessage} </Typography>
 
                         </div>
 
@@ -264,7 +297,7 @@ function Cart() {
                                                     Total:
                                                 </Typography>
                                                 <Typography display="inline" sx={{ color: '#464646' }} variant="subtitle1">
-                                                    ${cartTotal}
+                                                    ${total}
                                                 </Typography>
 
                                             </div>
@@ -273,7 +306,7 @@ function Cart() {
                                                     Discount:
                                                 </Typography>
                                                 <Typography display="inline" sx={{ color: '#464646' }} variant="subtitle1">
-                                                    $0
+                                                    ${discountValue}
                                                 </Typography>
                                             </div>
                                             <div>
@@ -298,7 +331,7 @@ function Cart() {
                             </Grid>}
                         </div>
                     </Grid>}
-                </Grid> 
+                </Grid>
             </div>
         </div>
     )
