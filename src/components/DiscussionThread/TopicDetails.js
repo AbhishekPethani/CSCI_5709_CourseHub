@@ -13,7 +13,7 @@ import { AccountCircle } from "@mui/icons-material";
 import './../../assets/css/TopicDetails.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const DiscussionThreadEndpoint = "http://localhost:3000/discussion";
+const DiscussionThreadEndpoint = "http://csci-5709-course-hub-backend.herokuapp.com/discussion";
 
 export default function TopicDetails(props) {
 	const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
