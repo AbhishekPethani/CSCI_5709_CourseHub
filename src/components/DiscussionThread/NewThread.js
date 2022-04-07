@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import NavbarComp from "../NavbarComp";
 import './../../assets/css/NewThread.css';
 
-const DiscussionThreadEndpoint = "http://localhost:3000/discussion";
+const DiscussionThreadEndpoint = "http://csci-5709-course-hub-backend.herokuapp.com/discussion";
 
 export default function NewThread(props) {
     const [userId, setUserId] = useState(localStorage.getItem("logged_in_user"));
