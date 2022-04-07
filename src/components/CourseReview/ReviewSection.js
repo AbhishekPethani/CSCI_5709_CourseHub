@@ -24,7 +24,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
   const [reviewToDelete, setReviewToDelete] = useState()
   // state to check if user selected Yes or No on DeleteReviewDialog component
   const [isYes, setIsYes] = useState(false)
-
+  let isFirst = true
   // function to add review
   const addReview = (review) => {
     review.userName = currentUser;
@@ -38,7 +38,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
     // Backend URL
     const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/reviews';
     // fetch all the reviews from the database for selected course
-    if(courseName){
+    if(courseName && isFirst){
       axios.get(backEndURL + '/' + courseName)
       .then((response) => {
           let result = response.data
@@ -50,6 +50,7 @@ const ReviewSection = ( { courseName, purchasedBy } ) => {
       .catch((error) => {
           console.log(error)
       })
+      isFirst = false
       }
     })
   
