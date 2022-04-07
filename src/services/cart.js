@@ -5,8 +5,8 @@
 import axios from 'axios';
 
 // Backend URL
-// const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/courses';
-const backEndURL = 'http://localhost:3000/cart'
+const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/cart';
+// const backEndURL = 'http://localhost:3000/cart'
 
 // Method to get all the cart items for a user
 const getCart = (userId) => {
