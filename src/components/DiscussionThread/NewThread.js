@@ -19,11 +19,9 @@ export default function NewThread(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("Topic: " + topic);
     }, [topic]);
 
     useEffect(() => {
-        console.log("Desc: " + description);
     }, [description]);
 
     const changeDescription = (event) => {
