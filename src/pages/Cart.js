@@ -222,7 +222,7 @@ function Cart() {
 
                         </div>
                     </Grid>
-                    <Grid item xs={12} sm={4}>
+                    {!isCartEmpty && <Grid item xs={12} sm={4}>
                         <div style={{
                             backgroundColor: '#f8f8ff',
                             display: 'flex',
@@ -297,8 +297,8 @@ function Cart() {
                                 </Grid>
                             </Grid>}
                         </div>
-                    </Grid>
-                </Grid>
+                    </Grid>}
+                </Grid> 
             </div>
         </div>
     )
