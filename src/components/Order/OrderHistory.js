@@ -14,13 +14,25 @@ const useStyles = makeStyles((theme) => ({
     tableContainer: {
         borderRadius: 15,
         margin: '10px',
-        maxWidth: 950,
+        maxWidth: 800,
+        overflowX: 'auto'
+    },
+    table: {
+        minWidth: 650, 
+        border:"1px solid",
     },
     tableHeaderCell: {
         fontWeight: 'bold',
         backgroundColor: "rgb(63, 81, 181)",
         color: "theme.palette.getContrastText(theme.palette.primary.dark)"
     },
+    status: {
+        color: 'white',
+        backgroundColor: 'grey',
+        borderRadius: 8,
+        padding: '3px 10px',
+        display: 'inline-block'
+    }
 }))
 
 const OrderHistory = ( {email}) => {
@@ -40,7 +52,7 @@ const OrderHistory = ( {email}) => {
             if(result.success){
                 setOrderHistory(result.orderHistory)
             }
-            console.log(response)
+            console.log(orderHistory)
         })
         .catch((error) => {
             console.log(error)
@@ -49,12 +61,12 @@ const OrderHistory = ( {email}) => {
 
     return (
         <Grid container direction="column" alignItems="center" border= "1px solid rgba(0,0,0,.125)" border-radius="0.25rem" >
-            <Typography gutterBottom mt="10px" variant="h4" component="h2" align='center'>Order History</Typography>
+            <Typography gutterBottom  sx={{ mt:'10px', fontSize: { md: 25, sm: 15, xs: 15 }}} variant="h4" component="h2" align='center'>Order History</Typography>
             {orderHistory.length > 0 ?
                 <TableContainer component={Paper} className={classes.tableContainer}>
-                    <Table sx={{ minWidth: 650, border:"1px solid"}} aria-label="simple table">
+                    <Table className={classes.table} aria-label="simple table">
                         <TableHead sx={{color: 'white'}}>
-                        <TableRow>
+                        <TableRow style={{height: '10px'}}>
                             <TableCell className={classes.tableHeaderCell}> Order ID </TableCell>
                             <TableCell className={classes.tableHeaderCell}> Course Name </TableCell>
                             <TableCell className={classes.tableHeaderCell}> Date </TableCell>
@@ -66,11 +78,16 @@ const OrderHistory = ( {email}) => {
                         {orderHistory.map((order) => (
                             <TableRow key={order._id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                             <TableCell component="th" scope="row"> {order._id} </TableCell>
-                            <TableCell >{order.courseName[0]} </TableCell>
+                            <TableCell >{order.courseName.length > 1 ? order.courseName[0] + ", " + order.courseName[1] + ", ..." : order.courseName} </TableCell>
                             <TableCell >{order.date.split("T")[0]}</TableCell>
                             <TableCell >{order.amount}</TableCell>
-                            <TableCell >{order.status}</TableCell>
-                            </TableRow>
+                            <TableCell >
+                                <Typography className={classes.status} style={{ backgroundColor: ((order.status === 'Completed' && 'green') ||
+                                                                                                 (order.status === 'Failed' && 'red')) }}> 
+                                    {order.status}
+                                </Typography>
+                            </TableCell>
+                        </TableRow>
                         ))}
                         </TableBody>
                     </Table>
