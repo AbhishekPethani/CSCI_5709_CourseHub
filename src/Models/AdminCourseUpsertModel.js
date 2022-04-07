@@ -172,6 +172,17 @@ export const CourseUpsertModel = ({ handleClose, show, data, action }) => {
           }
         />
       </div>
+      <div className="group">
+        <label>Details</label>
+        <textarea
+          name="courseDetails"
+          className="course-description"
+          value={course.courseDetails || ""}
+          onChange={($event) =>
+            onInputChange($event.target.value, "courseDetails")
+          }
+        />
+      </div>
       {action === "create" && <div className="group">
         <label>Image</label>
         <input type="file" name="courseImage" className="course-image-input" onChange={($event) => onImageChange($event)} />
