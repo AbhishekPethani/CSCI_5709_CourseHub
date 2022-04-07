@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     },
     tableHeaderCell: {
         fontWeight: 'bold',
-        backgroundColor: theme.palette.warning.dark,
-        color: theme.palette.getContrastText(theme.palette.primary.dark)
+        backgroundColor: "rgb(63, 81, 181)",
+        color: "theme.palette.getContrastText(theme.palette.primary.dark)"
     },
 }))
 
@@ -53,7 +53,7 @@ const OrderHistory = ( {email}) => {
             {orderHistory.length > 0 ?
                 <TableContainer component={Paper} className={classes.tableContainer}>
                     <Table sx={{ minWidth: 650, border:"1px solid"}} aria-label="simple table">
-                        <TableHead>
+                        <TableHead sx={{color: 'white'}}>
                         <TableRow>
                             <TableCell className={classes.tableHeaderCell}> Order ID </TableCell>
                             <TableCell className={classes.tableHeaderCell}> Course Name </TableCell>
