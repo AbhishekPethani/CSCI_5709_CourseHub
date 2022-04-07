@@ -5,8 +5,8 @@
 import axios from 'axios';
 
 // Backend URL
-// const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/coupons';
-const backEndURL = 'http://localhost:3000/coupons'
+const backEndURL = 'https://csci-5709-course-hub-backend.herokuapp.com/coupons';
+// const backEndURL = 'http://localhost:3000/coupons'
 
 
 // Method to get coupon
