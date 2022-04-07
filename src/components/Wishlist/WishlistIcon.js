@@ -20,6 +20,9 @@ export default function WishlistIcon(props) {
     const [isWishlisted, setIsWishlisted] = useState(false);
 
     useEffect(() => {
+        if(!props.userId) {
+            return;
+        }
         let checkUrl = wishlistEndpoint + "check" + "/" + props.userId + "/" + props.courseId;
         axios.get(checkUrl).then((res) => {
             if (res.data.isWishlisted) {
@@ -33,6 +36,9 @@ export default function WishlistIcon(props) {
     }, []);
 
     async function handleOnClick() {
+        if(!props.userId) {
+            return;
+        }
         if (isWishlisted) {
             // remove
             let removeFromWishlistUrl = wishlistEndpoint + props.userId + "/" + props.courseId;
