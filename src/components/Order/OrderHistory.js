@@ -40,6 +40,7 @@ const OrderHistory = ( {email}) => {
             if(result.success){
                 setOrderHistory(result.orderHistory)
             }
+            console.log(response)
         })
         .catch((error) => {
             console.log(error)
@@ -65,7 +66,7 @@ const OrderHistory = ( {email}) => {
                         {orderHistory.map((order) => (
                             <TableRow key={order._id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                             <TableCell component="th" scope="row"> {order._id} </TableCell>
-                            <TableCell >{order.courseName}</TableCell>
+                            <TableCell >{order.courseName[0]} </TableCell>
                             <TableCell >{order.date.split("T")[0]}</TableCell>
                             <TableCell >{order.amount}</TableCell>
                             <TableCell >{order.status}</TableCell>
