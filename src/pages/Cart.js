@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { makeStyles } from "@material-ui/core/styles";
 import { useNavigate } from 'react-router-dom';
 import { getDiscount } from '../services/coupons';
+import { addOrder, addUserToCourse, clearCart } from '../services/checkout';
 
 const useStyles = makeStyles((theme) => ({
     h1: {
@@ -149,6 +150,38 @@ function Cart() {
                 setCartTotal(total);
             }
         });
+    }
+
+
+    const checkout = (event) => {
+        let courseNames = [];
+        for (const course of cartItems) {
+            courseNames.push(course.courseName);
+
+            // add user to course
+            const bodyCourse = {
+                userName: localStorage.getItem("name"),
+                courseName: course.courseName
+            }
+            addUserToCourse(bodyCourse)
+        }
+        
+        // add items to order table
+        const bodyOrder = {
+            courseName: courseNames,
+            amount: cartTotal,
+            status: "Completed",
+            email: localStorage.getItem("logged_in_user")
+        }
+        addOrder(bodyOrder);
+
+
+        // clear the cart table
+        const bodyDelete = {
+            userId: localStorage.getItem("logged_in_user")
+          }
+        clearCart(bodyDelete);
+        navigate(`/checkout`);
     }
 
 
@@ -322,7 +355,7 @@ function Cart() {
                                         </ThemeProvider>
                                     </div>
                                     <div style={{ paddingBottom: '30px', paddingLeft: '30px' }}>
-                                        <Button variant="contained" sx={{ backgroundColor: "rgb(63, 81, 181)" }}   >
+                                        <Button variant="contained" sx={{ backgroundColor: "rgb(63, 81, 181)" }} onClick={() => checkout()}  >
                                             Proceed to Checkout
                                         </Button>
                                     </div>

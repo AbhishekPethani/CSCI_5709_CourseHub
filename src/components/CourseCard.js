@@ -43,8 +43,6 @@ const handleClickCart = () => {
     coursePrice: props.coursePrice,
     courseAuthor: props.courseAuthor
   }
-  // event.preventDefault();
-  console.log(body);
   addToCart(body);
 };
 

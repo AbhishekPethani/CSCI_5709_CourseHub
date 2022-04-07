@@ -16,6 +16,7 @@ import ActiveOrderOpen from "./components/Order/ActiveOrderOpen";
 import Topics from "./components/DiscussionThread/Topics";
 import TopicDetails from "./components/DiscussionThread/TopicDetails";
 import NewThread from "./components/DiscussionThread/NewThread";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/discussion/new-thread" element={<NewThread />} />
           <Route exact path="/logout" element={<Logout />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/checkout" element={<Checkout />} />
           <Route
             exact
             path="/authenticate/forgotPassword"
