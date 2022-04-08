@@ -106,5 +106,5 @@ export default function Profile() {
   );
 }
 
-// image citations:https://www.dreamstime.com/stock-illustration-off-red-rubber-stamp-over-white-background-image88004210
+// image citations:https://www.shutterstock.com/image-vector/discount-ribbon-round-red-sign-1509853091
 // for grid style-https://mui.com/components/grid/
