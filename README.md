@@ -119,9 +119,20 @@ step-6: Open any browser and type localhost:3000
 ### Feature (Wishlist)
 #### Author - Jay Bipinchandra Patel
 ```
-1. Wishlist.js          (available at: src\components\Wishlist)
-2. WishlistIcon.js      (available at: src\components\Wishlist)
-3. wishlist.css         (available at: src\assets\css)
-4. WishlistBtn.css      (available at: src\assets\css)
-5. WishlistIcon.css     (available at: src\assets\css)
+1. Wishlist.js          (available at: src/components/Wishlist)
+2. WishlistIcon.js      (available at: src/components/Wishlist)
+3. wishlist.css         (available at: src/assets/css)
+4. WishlistBtn.css      (available at: src/assets/css)
+5. WishlistIcon.css     (available at: src/assets/css)
+```
+
+### Feature (Discussion Forum)
+#### Author - Jay Bipinchandra Patel
+```
+1. NewThread.js         (available at: src/components/DiscussionThread)
+2. TopicDetails.js      (available at: src/components/DiscussionThread)
+3. Topics.js            (available at: src/components/DiscussionThread)
+4. NewThread.css        (available at: src/assets/css)
+5. Topic.css            (available at: src/assets/css)
+6. TopicDetails.css     (available at: src/assets/css)
 ```
