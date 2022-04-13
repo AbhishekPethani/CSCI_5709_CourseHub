@@ -145,3 +145,15 @@ step-6: Open any browser and type localhost:3000
 5. Topic.css            (available at: src/assets/css)
 6. TopicDetails.css     (available at: src/assets/css)
 ```
+
+### Feature (Course Management)
+#### Author - Sourav Malik
+```
+### Files
+- AdminDashboard.js
+- AdminCourseUpsertModel.js
+- AdminDiscountModel.js
+- AdminCourse.js
+- AdminCourse.css
+- AdminCourseUpsertModel.css
+- AdminDiscount.css
