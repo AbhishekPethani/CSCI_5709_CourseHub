@@ -157,3 +157,30 @@ step-6: Open any browser and type localhost:3000
 - AdminCourse.css
 - AdminCourseUpsertModel.css
 - AdminDiscount.css
+```
+
+## Sources Used
+
+### AdminTabs.js
+
+Lines 10 - 19
+
+        <li
+          className={[props.selectedTab === "1" ? "active" : "", 'user-management', 'clickable'].join(' ')}
+          onClick={() => props.handleTabChange("1")}
+        >
+          User Management
+        </li>
+        <li
+          className={[props.selectedTab === "2" ? "active" : "", 'course-management', 'clickable'].join(' ')}
+          onClick={() => props.handleTabChange("2")}
+        >
+
+The code above was created by adapting the code in [Stack Overflow](https://stackoverflow.com/questions/53185408/pass-argument-to-function-reactjs) as shown below:
+
+        onChange={ (tabId) => this.handleTabChange(tabId)}
+
+- The code in [Stack Overflow](https://stackoverflow.com/questions/53185408/pass-argument-to-function-reactjs) was implemented by dubes.
+- [Stack Overflow](https://stackoverflow.com/questions/53185408/pass-argument-to-function-reactjs)'s Code was used on the tabs holder to fetch the tab id from user click events.
+- [Stack Overflow](https://stackoverflow.com/questions/53185408/pass-argument-to-function-reactjs)'s Code was modified by Sourav Malik.
+
