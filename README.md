@@ -100,6 +100,15 @@ step-6: Open any browser and type localhost:3000
 6. reviews.js        		(available at: src/services/)
 ```
 
+### Feature (Order)
+#### Author - Abhishek Pareshbhai Pethani
+```
+1. ActiveOrder.js           (available at: src/components/Order)
+2. ActiveOrderItem.js       (available at: src/components/Order)
+3. ActiveOrderOpen.js       (available at: src/components/Order)
+4. Order.js                 (available at: src/components/Order)
+5. OrderHistory.js          (available at: src/components/Order)
+```
 
 ### Feature (User Authentication)
 #### Author - Ridampreet Singh Jaggi
